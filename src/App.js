@@ -15,7 +15,6 @@ class App extends Component{
             <div>
                 <LoginContainer></LoginContainer>               
                 {/* <RegisterContainer></RegisterContainer> */}
->>>>>>> 14d1949f0f11e15f8aeba457d850b229d4b50b1a
             </div>
         )
     }
