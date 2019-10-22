@@ -1,0 +1,192 @@
+.form {
+    position: absolute;
+    width: 750px;
+    height: 530px;
+    background-color: #fff;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif;
+}
+
+.wrap-right {
+    height: 100%;
+    width: 60%;
+}
+
+.wrap-left {
+    height: 100%;
+    width: 40%;
+    padding-top: 100px;
+}
+
+    .wrap-left .logo-book {
+        background: url('/logo-book1.jpg');
+        width: 250px;
+        height: 200px;
+        margin: auto;
+    }
+
+.message {
+    font-size: 16px;
+    font-weight: 300;
+    color: #202124;
+    margin: auto;
+    text-align: center;
+}
+
+    .message .name {
+        font-weight: bold;
+    }
+
+.title-name {
+    padding-top: 40px;
+    padding-left: 40px;
+    font-size: 16px;
+    padding-bottom: 20px;
+}
+
+.regiter-name {
+    font-size: 24px;
+    font-weight: 400;
+    width: 100%;
+    text-align: center;
+}
+
+.wrap-name {
+    display: flex;
+    flex-direction: row;
+    padding-top: 15px;
+    justify-content: center;
+}
+
+    .wrap-name .name-user {
+        width: 174px;
+        height: 34px;
+        border: 1px solid #d9d9d9;
+        margin: 10px;
+        line-height: 34px;
+        border-radius: 5px;
+    }
+
+        .wrap-name .name-user input {
+            border: none;
+            outline: none;
+            padding-left: 5px;
+        }
+
+        .wrap-name .name-user:focus-within {
+            border: 2px solid #4285f4;
+        }
+
+.wrap-email {
+    display: flex;
+    flex-direction: row;
+    padding-top: 15px;
+    justify-content: center;
+}
+
+    .wrap-email .email {
+        justify-content: space-between;
+        display: flex;
+        width: 371px;
+        height: 34px;
+        border: 1px solid #d9d9d9;
+        line-height: 34px;
+        border-radius: 5px;
+    }
+
+        .wrap-email .email input {
+            border: none;
+            outline: none;
+            padding-left: 5px;
+        }
+
+        .wrap-email .email:focus-within {
+            border: 2px solid #4285f4;
+        }
+
+        .wrap-email .email span {
+            padding-right: 5px;
+            font-size: 14px;
+        }
+
+.message-register {
+    font-size: 12px;
+    padding-left: 44px;
+    padding-top: 5px;
+}
+
+.footer-register {
+    display: flex;
+    flex-direction: row;
+    padding-top: 70px;
+    justify-content: space-between;
+    height: 34px;
+}
+
+    .footer-register a {
+        padding-left: 42px;
+        line-height: 34px;
+    }
+
+    .footer-register span {
+        border: none;
+        line-height: 34px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        color: #fff;
+    }
+
+.register {
+    height: 34px;
+    width: 100px;
+    background-color: rgb(26, 115, 232);
+    border-radius: 5px;
+    margin-right: 50px;
+    cursor: pointer;
+}
+
+.login a {
+    text-decoration: none;
+    color: rgb(26, 115, 232);
+    font-weight: bold;
+}
+
+.wrap-name-column {
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+    justify-content: center;
+    padding-left: 29px;
+}
+
+.wrap-name-column .password {
+    width: 174px;
+    height: 34px;
+    border: 1px solid #d9d9d9;
+    margin: 10px;
+    line-height: 34px;
+    border-radius: 5px;
+}
+    
+.wrap-name-column .password input {
+            border: none;
+            outline: none;
+            padding-left: 5px;
+        }
+
+        .wrap-name-column .password:focus-within {
+            border: 2px solid #4285f4;
+        }
+
+        .message-register-password {
+                font-size: 12px;
+    padding-left: 14px;
+    padding-top: 5px;
+        padding-bottom: 7px;
+        }
