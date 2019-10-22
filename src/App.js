@@ -7,11 +7,6 @@ import "./App.css"
 class App extends Component{
     render() {
         return (
-<<<<<<< HEAD
-            <div className='hello-world'>
-                <h1>Hello World</h1>
-                <p>Welcome to my world</p>
-=======
             <div>
                 <LoginContainer></LoginContainer>               
                 {/* <RegisterContainer></RegisterContainer> */}
