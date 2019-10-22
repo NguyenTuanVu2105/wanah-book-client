@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
-
-class NormalLoginForm extends React.Component {
-    handleSubmit = e => {
-        e.preventDefault();
-        this.props.form.validateFields((err, values) => {
-            if (!err) {
-                console.log('Received values of form: ', values);
-            }
-        });
-    };
-
-}   
-=======
 import React from 'react';
 import "./LoginForm.css";
 import { FaEye } from 'react-icons/fa'
@@ -71,4 +56,3 @@ class LoginForm extends React.Component {
 }
 
 export default LoginForm;
->>>>>>> 14d1949f0f11e15f8aeba457d850b229d4b50b1a
