@@ -1,9 +1,7 @@
-import React from 'react'
 import LoginContainer from "../app/login/components/LoginContainer"
 import RegisterContainer from "../app/register/components/RegisterContainer"
 import Paths from "./Paths"
 import App from "../App"
-import {Router, Switch} from 'react-dom'
 
 const routes = [
     {

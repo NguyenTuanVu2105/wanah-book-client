@@ -1,18 +1,17 @@
-import React,{Component} from 'react'
+import React from 'react'
 import LoginContainer from './app/login/components/LoginContainer'
-import RegisterContainer from './app/register/components/RegisterContainer'
-
 import "./App.css"
+import {test} from "./api/base/test"
 
-class App extends Component{
-    render() {
-        return (
-            <div>
-                <LoginContainer></LoginContainer>               
-                {/* <RegisterContainer></RegisterContainer> */}
-            </div>
-        )
+const App = () => {
+    const tester = async () => {
+        const {data} = await test();
+        console.log(data)   
     }
+    tester()
+    return (
+        <LoginContainer></LoginContainer> 
+    )
 }
 
 export default App;

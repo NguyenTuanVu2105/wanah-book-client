@@ -353,7 +353,7 @@ Phần mềm gồm có 3 actor chính là
 <p align="center">Hình 2: Trang đăng nhập</p>
 <img src = "./docs/pages/Admin.png" alt="Admin">
 <p align="center">Hình 3: Trang Admin</p>
-<img src = "./docs/pages/homepage.jpg" alt="Homepage">
+<img src = "./docs/pages/homepage.png" alt="Homepage">
 <p align="center">Hình 4: Trang chủ</p>
 <img src = "./docs/pages/Book.png" alt="Book">
 <p align="center">Hình 5: Trang gợi ý sách</p>
