@@ -25,4 +25,3 @@ yarn.lock
 coverage
 
 .env.development.local
-.env.production
