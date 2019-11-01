@@ -22,7 +22,6 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "proxy" : "https://wanahbackend.herokuapp.com",
   "browserslist": {
     "production": [
       ">0.2%",
