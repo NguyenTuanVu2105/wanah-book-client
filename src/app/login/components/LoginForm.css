@@ -8,7 +8,6 @@
     height: 600px;
     background-color: white;
     border-radius: 10px;
-    font-family:  Roboto, sans-serif;
 }
 
 .login-title {
@@ -36,7 +35,6 @@
 .login-form-title {
     display: block;
     position: absolute;
-    font-family: Poppins-Bold;
     font-size: 30px;
     color: #333333;
     line-height: 1.2;
@@ -44,7 +42,6 @@
     padding-top: 100px;
     padding-bottom: 40px;
     width: 100%;
-    
     padding-bottom: 40px;
 }
     
@@ -80,10 +77,9 @@
 .input {
     /* position: absolute; */
     max-width: 100%;
-    height: 47px;
+    height: 100%;
     padding-left: 14px;
     padding-right: 30px;    
-    width: 270px;
     outline: none;
     border: none;
     font-size: 16px;
@@ -96,14 +92,17 @@
 .validate-input{
     position: absolute;
     width: 315px;
+    height: 47px;
     border-bottom: 2px solid #adadad;
+    justify-content: center;
+    display: flex;
 }
 
 .icon-eye {
     border: none;
     position: absolute;
-    top: 22px;
-    left: 296px;
+    top: 14px;
+    left: 290px;
     color: #595959;
 }
 

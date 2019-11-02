@@ -36,13 +36,13 @@ class RegisterForm extends React.Component {
           </div> */}
           <div className="wrap-name-column">
             <div className="password">
-              <input placeholder="Mật khẩu" />
+              <input type="password" placeholder="Mật khẩu"/>
             </div>
             <div className="message-register-password">
               <i>Sử dụng 8 ký tự trở lên và kết hợp chữ cái, chữ số và biểu tượng</i>
             </div>
             <div className="password">
-              <input placeholder="Xác nhận" />
+              <input type="password" placeholder="Xác nhận" />
             </div>
           </div>
           

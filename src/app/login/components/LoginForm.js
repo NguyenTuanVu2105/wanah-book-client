@@ -1,8 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "./LoginForm.css";
 import { FaEye } from 'react-icons/fa'
 
 const LoginForm = (props) => {
+  const [show, setShow] = useState(false)
+  const changeShowInput = () => {
+    setShow(!show)
+  }
   return (
     <div>
       <div className="form-login">
@@ -25,11 +29,16 @@ const LoginForm = (props) => {
         </div>
         <div className="wrap-input">
           <div className="validate-input">
-            <input className="input" type="text" name="email" placeholder="Mật khẩu" />
+            <input className="input" 
+                  type={show ? "text": "password"} 
+                  name="password" 
+                  placeholder="Mật khẩu"
+                  />
             {/* <span className="btn-show-pass">
               
             </span> */}
-            <FaEye className="icon-eye" />
+            <FaEye className="icon-eye" onClick = {changeShowInput} 
+                  onMouseLeave = {() => setShow(false)}/>
           </div>             
         </div>    
              

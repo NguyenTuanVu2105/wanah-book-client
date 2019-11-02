@@ -1,5 +1,3 @@
-
-
 const Paths = {
     HomePage: "/",
     Login: "/login",

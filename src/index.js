@@ -4,6 +4,7 @@ import {BrowserRouter} from 'react-router-dom'
 import * as serviceWorker from './serviceWorker'
 import {renderRoutes} from 'react-router-config'
 import routes from './routes/Routes'
+import './index.css'
 
 ReactDOM.render(<BrowserRouter>
 {/* kick it all off with the root route */}
