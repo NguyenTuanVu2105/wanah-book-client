@@ -6,10 +6,10 @@ import './Homepage.css'
 const HomePage = () => {
     return (
         <div className="homepage">
-            <div className="header">
+            <div className="header flex-center">
                 <Header></Header>
             </div>
-            <div className="content">
+            <div className="content flex-center">
                 <Content></Content>
             </div>
         </div>
