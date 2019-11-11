@@ -1,4 +1,4 @@
-export default user = [
+const user = [
     {
     name: "VU",
     address: "ahihi"
@@ -24,3 +24,5 @@ export default user = [
         address: "ahihi"
     }
 ]
+
+module.exports = user
