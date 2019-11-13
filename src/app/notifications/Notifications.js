@@ -1,10 +1,39 @@
 import React from 'react'
 import './Notifications.css'
+import { Card, Icon, Avatar, Button } from 'antd';
+import {users} from './data/User'
+import { blue } from 'ansi-colors';
+
+const { Meta } = Card;
 
 const Notifications = () => {
     return (
         <div>
-            Notifications
+            {
+                users.map(user => {
+                    const message = `Yêu cầu mượn sách ${user.book} từ bạn`
+                    const description = (
+                        <div>
+                            <p>{message}</p>
+                            <Button style={{background: 'blue', color:'white', marginRight:'10px'}}>Chấp nhận</Button>
+                            <Button style={{background: 'red', color:'white'}}>Từ chối</Button>
+                        </div>
+                    )
+                    return (
+                        <div class="notification-raw">
+                            <Card 
+                                className="notification-row"
+                            >
+                                <Meta
+                                    avatar={<Avatar src={user.avatar} />}
+                                    title={user.name}
+                                    description={description}
+                                />      
+                            </Card>,
+                        </div>
+                    )
+                })
+            }
         </div>
     )
 }
