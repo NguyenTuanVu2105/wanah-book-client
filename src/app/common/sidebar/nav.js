@@ -4,7 +4,7 @@ const nav = [
     {
         name: "Trang chủ",
         path: Paths.HomePage,
-        icon: "coffee",
+        icon: "home",
 
     },
     {

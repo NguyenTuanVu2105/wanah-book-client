@@ -43,6 +43,11 @@ code {
   display: flex;
   flex-direction: column;
 }
+
+.flex-space {
+  display: flex;
+  justify-content: space-between;
+}
 #root {
   background-color: #3C8DBC;
 }
@@ -52,7 +57,7 @@ code {
   margin-top: 20px;
   }
   
-.homepage {
+.app-container {
 height: 50px;
 background: #3C8DBC;
 }
@@ -66,3 +71,4 @@ background: #3C8DBC;
   flex: 0 0 80%;
   max-width: 80%;
 }
+

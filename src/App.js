@@ -12,7 +12,7 @@ library.add(fab, fas)
 
 const App = (props) => {
     return (
-        <Container className="homepage">
+        <Container className="app-container">
             <AppHeader></AppHeader>
             <Row className="app-body">
                 <AppSider></AppSider>

@@ -3,7 +3,15 @@ min-height: 850px;
 padding-top: 20px;
 }
 
-.homepage {
+.app-container {
 height: 50px;
 background: #3C8DBC;
+}
+
+a:hover {
+    text-decoration: none !important;
+}
+
+* {
+    box-sizing: border-box;
 }
