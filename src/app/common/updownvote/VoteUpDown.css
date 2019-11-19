@@ -1,0 +1,21 @@
+.up-down{
+  display: flex;
+  flex-direction: column;
+  width: 75px;
+  font-size: 25px;
+  justify-content: center;
+  align-items: center;
+}
+
+.countUp:hover {
+  color: #ff0000;
+  cursor: pointer;
+}
+
+.countDown:hover {
+  color: #3e64ff;
+  cursor: pointer;
+}
+
+
+

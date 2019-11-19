@@ -1,0 +1,108 @@
+.title {
+  display: flex;
+  height: 50px;
+  line-height: 50px;
+  align-items: center;
+}
+
+.title .create-review {
+  border: 1px solid #d0d0d0;
+  width: 100px;
+  height: 30px;
+  background-color: #00918e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  position: absolute;
+  right: 53px;
+}
+
+.header-filter {
+  min-width: 80px;
+}
+
+.button-down {
+  background: url("/public/asset/trigger.png") no-repeat center;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+}
+
+.image-avatar-review {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  margin-right: 20px;
+}
+
+.review-wrap {
+  width: 90%;
+  border: 1px solid #0000001f;
+  margin: auto;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-content {
+  width: 68%;
+  height: 80%;
+  margin-left: 15px;
+}
+
+.header-title {
+  width: 110px;
+}
+
+.image-book-review {
+  width: 100px;
+  height: 150px;
+}
+
+.content-book-review {
+  width: 91%;
+  margin: 0;
+  padding: 0;
+  min-height: 123px;
+  margin-bottom: 20px;
+}
+
+.column {
+  display: flex;
+  height: 40%;
+  margin: 20px auto;
+}
+
+.column p {
+  margin: 0;
+  padding: 0;
+}
+
+.header-filter:hover {
+  cursor: pointer;
+}
+
+.show-filter {
+  position: absolute;
+  z-index: 1;
+  left: 124px;
+  width: 80px;
+  top: 38px;
+  border-radius: 5px;
+  background-color: #fafafa;
+  border: 1px solid #0000001f;
+}
+
+.show-filter .filter-item{
+  height: 23px;
+  font-size: 13px;
+  padding-left: 5px;
+}
+
+.show-filter .filter-item:hover {
+  background-color: #c8e6f5;
+  cursor: pointer;
+}
+
