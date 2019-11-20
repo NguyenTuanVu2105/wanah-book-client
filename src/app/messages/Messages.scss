@@ -1,0 +1,46 @@
+.messages {
+    display: flex;
+    .messages-search{
+        width: 30%;
+        padding:15px; 
+        .messages-chat-box{
+            display: flex;
+            padding: 10px;
+            .messages-chat-box-content {
+                width: 80%;
+            }
+        }   
+        .messages-chat-box:hover {
+            background:#e6e6e6;
+        }
+    }
+    .messages-chat{
+        width:70%;
+        height: 800px; 
+        background-color: #e6e6e6;
+        margin-top: 14px;
+        .messages-chat-sender{
+            display:flex;
+            justify-content: flex-end;
+            padding: 10px;
+            .messages-chat-sender-content{
+                background-color: blue;
+                color: white;
+            }
+        }
+        .messages-chat-receiver{
+            display:flex;
+            justify-content: flex-start;
+            padding: 10px;
+            .messages-chat-sender-content{
+                background-color:#faad14;
+                color: black;
+                margin: 6px 0 6px 10px;
+            }
+            .messages-chat-box-content {
+                display: flex;
+            }
+        }
+    }
+   
+}

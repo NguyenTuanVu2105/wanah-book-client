@@ -1,0 +1,20 @@
+.user-avatar {
+    padding: 0 15px;
+    text-align: center;
+    .user-name {
+        padding: 15px 0;
+        font-weight: bold;
+        font-size: large;
+    }
+}
+.user-info {
+    padding: 10px;
+    font-size: 15px;
+   .user-description {
+        font-weight: bold;
+        min-height: 75px;
+   }
+   .user-address {
+       color: #0A81C3;
+   }
+}

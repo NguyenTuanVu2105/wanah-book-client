@@ -72,3 +72,12 @@ background: #3C8DBC;
   max-width: 80%;
 }
 
+.inline {
+  display: inline;
+}
+
+.text-more {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

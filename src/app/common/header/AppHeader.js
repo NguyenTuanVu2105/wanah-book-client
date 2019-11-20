@@ -1,13 +1,14 @@
 import React from 'react'
 import { Row, Col } from 'react-bootstrap'
 import {Input, Select, Avatar, Menu, Dropdown} from 'antd'
-import {Link} from 'react-router-dom'
+import {Link, useRouteMatch} from 'react-router-dom'
 import './AppHeader.scss'
 
 const {Search} = Input
 const {Option} = Select
 
 const AppHeader = () => {
+    let {url} = useRouteMatch()
     const menu = (
         <Menu>
           <Menu.Item key="0">
@@ -34,7 +35,7 @@ const AppHeader = () => {
             <Row className="header">
                 <Col xs={2} className="flex-center">
                   <Link to="/">
-                    <img src="./asset/logo.png" style={{maxWidth:"100%", maxHeight:"100%"}}></img>
+                    <img src={`${url}asset/logo.png`} style={{maxWidth:"100%", maxHeight:"100%"}}></img>
                   </Link>
                     
                 </Col>

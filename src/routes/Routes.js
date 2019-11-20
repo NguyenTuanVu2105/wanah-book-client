@@ -2,12 +2,14 @@ import LoginContainer from "../app/login/components/LoginContainer"
 import RegisterContainer from "../app/register/components/RegisterContainer"
 import Paths from "./Paths"
 import App from "../App"
+// import AppNoSideBar from "../AppNoSideBar"
 import HomePage from '../app/homepage/HomePage'
 import Books from '../app/books/Books'
 import Reviews from '../app/reviews/Reviews'
 import Messages from '../app/messages/Messages'
 import Users from '../app/users/Users'
 import Notifications from '../app/notifications/Notifications'
+import User from "../app/users/User"
 
 const routes = [
     {
@@ -20,6 +22,11 @@ const routes = [
         exact: true,
         component: RegisterContainer
     },
+    // {
+    //     path: Paths.Messages, 
+    //     exact: true,
+    //     component: Messages
+    // },
     {
         component: App,
         routes: [
@@ -39,11 +46,6 @@ const routes = [
                 component: Reviews
             },
             {
-                path: Paths.Messages,
-                exact: true,
-                component: Messages
-            },
-            {
                 path: Paths.Users,
                 exact: true,
                 component: Users
@@ -52,6 +54,16 @@ const routes = [
                 path: Paths.Notifications,
                 exact: true,
                 component: Notifications
+            },
+            {
+                path: Paths.UserDetail,
+                exact: true,
+                component: User
+            },
+            {
+                path: Paths.Messages,
+                exact: true,
+                component: Messages
             },
         ]
     },
