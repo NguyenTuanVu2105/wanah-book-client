@@ -44,6 +44,11 @@ code {
   display: flex;
   flex-direction: column;
 }
+
+.flex-space {
+  display: flex;
+  justify-content: space-between;
+}
 #root {
   background-color: $violet1;
 }
@@ -61,4 +66,14 @@ code {
 .col-4p5 {
   flex: 0 0 80%;
   max-width: 80%;
+}
+
+.inline {
+  display: inline;
+}
+
+.text-more {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }

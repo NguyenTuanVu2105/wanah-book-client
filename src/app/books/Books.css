@@ -1,44 +1,13 @@
-
-.wrap-book {
-  width: 19%;
-  height: auto;
-  margin: 18px;
-  border: 1px solid #d9d9d9;
-} 
-
 .book-suggest{
-  width: 100%;
-  height: 40px;
   font-size: 20px;
-  margin-top: 10px;
+  font-weight: bold;
+  color: #676767;
+  padding: 25px 0 0 10px;
 }
 
 .book-row {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.image-book {
-  width: 100%;
-  height: 80%;
-}
-
-.book-name{
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  padding: 0;
-  margin: 0;
-}
-
-.content-book {
-  display: flex;
-  justify-content: center;
-  margin: 5px;
-  flex-direction: column;
-}
-
-
-        

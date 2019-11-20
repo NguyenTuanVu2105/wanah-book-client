@@ -1,24 +1,24 @@
 import React from 'react'
 import './BookCell.css'
 import StarRatings from 'react-star-ratings'
+import {Link} from 'react-router-dom'
 
 const BookCell = (props) => {
   return (
+    <Link to="/" className="book-cell">
       <div className="wrap-book">
-        <img src={props.image} className="image-book"></img>
+        <div className="image">
+          <img src={props.image} className="image-book"></img>
+        </div>
         <div className="content-book">
-          <p className="book-name">
-            {
-              props.name
-            }
-          </p>
-          <p>
-            <StarRatings rating={props.star} starRatedColor="#ffdc34" numberOfStars={5} starDimension="16px" starSpacing="5px">
-
-            </StarRatings>
-          </p>
+          <label className="book-name">{props.name}</label>
+          <i className="book-author">{props.author}</i>
+          <div className="book-star">
+            <StarRatings rating={props.star} starRatedColor="#ffdc34" numberOfStars={5} starDimension="14px" starSpacing="3px"/>
+          </div>
         </div>
       </div>
+    </Link>
   )
 }
 

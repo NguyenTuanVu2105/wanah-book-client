@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+.homepage {
+    width: 100%;
+}
+
+.homepage-header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.homepage-header-card {
+    width: 33%;
+    margin: 0 10px;
+}
+
+
+.homepage-title {   
+    font-size: 17px;
+    font-weight: bold;
+    padding: 20px 10px 0 10px;
+}
+
+.homepage-book {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    text-overflow: hidden;
+    overflow: hidden;
+    margin-top: -18px;
+}
+
+.show-more {
+    font-size: 14px;
+    color: red;
+}
+
+

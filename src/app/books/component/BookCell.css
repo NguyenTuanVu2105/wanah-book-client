@@ -1,38 +1,57 @@
-
 .wrap-book {
-  width: 19%;
   height: auto;
-  margin: 18px;
-  border: 1px solid #d9d9d9;
-} 
-
-.book-suggest{
   width: 100%;
-  height: 50px;
 }
 
-.book-row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+.wrap-book:hover {
+  box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 
 .image-book {
-  width: 100%;
-  height: 80%;
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .book-name{
+  display: block;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  padding: 0;
-  margin: 0;
+  padding:10px 10px 0 10px;
+  font-weight: bold;
+  color: #555555 !important;
+}
+
+.book-author {
+  padding: 0 0 0 10px;
 }
 
 .content-book {
   display: flex;
-  justify-content: center;
-  margin: 5px;
   flex-direction: column;
+}
+
+.book-cell {
+  flex: 0 0 25%;
+  max-width: 25%;
+  padding: 10px;
+}
+
+.image {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  padding: 20px 20px 10px 20px;
+  margin: 0 auto;
+}
+
+.book-author {
+  font-size: 12px;
+}
+
+.book-star {
+  padding: 0 10px 0 10px;
 }
