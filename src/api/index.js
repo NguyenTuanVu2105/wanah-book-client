@@ -41,7 +41,7 @@ export const createAuthApiRequest = async ({ url, method, data, params, isFormDa
             data,
             params,
             headers: {
-                'Authorization': `Bearer ${token}`,
+                'x-access-token': `${token}`,
                 ...isFormData && {'Content-Type': 'multipart/form-data'},
             }
         })
@@ -81,7 +81,7 @@ export const createAuthEncodeApiRequest = async ({ url, method, data, params, is
             data,
             params,
             headers: {
-                'Authorization': `Bearer ${token}`,
+                'x-access-token': `${token}`,
                 'Content-Encoding': encode,
                 ...isFormData && {'Content-Type': 'multipart/form-data'},
             }

@@ -6,6 +6,7 @@
         .messages-chat-box{
             display: flex;
             padding: 10px;
+            cursor: pointer;
             .messages-chat-box-content {
                 width: 80%;
             }
@@ -18,7 +19,7 @@
         width:70%;
         height: 800px; 
         background-color: #e6e6e6;
-        margin-top: 14px;
+        margin: 0 0 0 -15px;
         .messages-chat-sender{
             display:flex;
             justify-content: flex-end;

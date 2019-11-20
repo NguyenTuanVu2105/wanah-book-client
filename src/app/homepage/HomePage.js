@@ -5,6 +5,8 @@ import {Link} from 'react-router-dom'
 import Paths from '../../routes/Paths'
 import {books} from '../books/data/Book'
 import BookCell from '../books/component/BookCell'
+import {reviews} from '../reviews/data/Review'
+import ReviewCell from '../reviews/components/ReviewCell'
 
 const HomePage = () => {
     return (
@@ -55,7 +57,12 @@ const HomePage = () => {
                 <p>Review</p>
                 <Link className="show-more" to="/books">Xem thêm&nbsp;></Link>
             </div>
-
+            <div className="homepage-review">
+                {reviews.slice(0, 3).map(review => (
+                    <ReviewCell review={review}></ReviewCell>
+                ))}
+                
+            </div>
         </div>
     )
 }

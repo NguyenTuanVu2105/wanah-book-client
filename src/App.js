@@ -25,7 +25,7 @@ const App = (props) => {
         // </Container>  
         <Layout>
             <AppHeader />
-            <Content style={{ padding: '0 50px', marginTop: 79 }}>
+            <Content style={{ padding: '0 50px', marginTop: 64 }}>
                 <Row type="flex">
                     {
                         true ?

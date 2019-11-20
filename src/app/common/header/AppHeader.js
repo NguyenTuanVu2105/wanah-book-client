@@ -32,7 +32,7 @@ const AppHeader = () => {
 
   return (
     <Header style={{ position: 'fixed', zIndex: 1, width: '100%', background: "#8900d4" }}>
-      <Row justify="space-between" align="middle" type="flex">
+      <Row className="header" justify="space-between" align="middle" type="flex">
         <Col>
           <img src="./asset/logo.png" style={{ height: 64 }}></img>
         </Col>

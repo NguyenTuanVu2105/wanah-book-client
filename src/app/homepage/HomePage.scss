@@ -14,14 +14,23 @@
 
 .homepage-header-card {
     width: 33%;
-    margin: 0 10px;
+    padding: 0 40px;
+    .ant-card-body {
+        padding: 10px;
+    }
 }
 
+.homepage-header-card:hover {
+    text-decoration: none !important;
+    .ant-card-body {
+        color: blue;
+    }
+}
 
 .homepage-title {   
     font-size: 17px;
     font-weight: bold;
-    padding: 20px 10px 0 10px;
+    padding: 15px 10px 0 10px;
 }
 
 .homepage-book {

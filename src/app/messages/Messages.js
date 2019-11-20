@@ -37,7 +37,7 @@ const Messages = () => {
                 placeholder="Aa"
                 enterButton="Gửi"
                 size="medium"
-                className="mesage-chat-box"
+                style={{position: 'absolute', bottom:'0', width:'68%'}}
                 onSearch={value => console.log(value)}
                 />
                 

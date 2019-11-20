@@ -21,7 +21,7 @@ export const SESSION_KEY = {
 
 export const COOKIE_KEY = {
     TOKEN: 'TOKEN',
-    EMAIL: 'EMAIL',
     USER_ID: 'USER_ID',
     NAME: 'NAME',
+    AVATAR: 'AVATAR'
 }
