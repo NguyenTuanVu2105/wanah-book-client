@@ -1,3 +1,4 @@
+@import './asset/BaseColor.scss';
 .app-body {
 min-height: 850px;
 padding-top: 20px;
@@ -5,5 +6,5 @@ padding-top: 20px;
 
 .homepage {
 height: 50px;
-background: #3C8DBC;
+background: $violet1;
 }

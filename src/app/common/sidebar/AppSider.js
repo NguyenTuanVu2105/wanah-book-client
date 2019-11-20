@@ -15,14 +15,13 @@ const AppSider = () => {
                 bordered
                 dataSource={nav}
                 style={{
-                    margin: "10px",
                     width: "200px",
                     border: 'none'
                 }}
-                renderItem={(item) => (
+                renderItem={(item, index) => (
                     <List.Item className="sidebar-item">
                         <Link to={item.path} className="sidebar-link">
-                            <FontAwesomeIcon style={{color:'blue'}} icon={item.icon} size="lg"></FontAwesomeIcon>
+                            <FontAwesomeIcon className={`sidebar-icon-${index%4}`} icon={item.icon} size="lg"></FontAwesomeIcon>
                             <span style={{margin:'10px'}}>{item.name}</span>
                         </Link>
                     </List.Item>                

@@ -1,5 +1,24 @@
+@import '../../../asset/BaseColor.scss';
+
+.sidebar {
+    padding: 0;
+    .sidebar-icon-0 {
+        color: $violet3;
+    }
+    .sidebar-icon-1 {
+        color: $yellow1;
+    }
+    .sidebar-icon-2 {
+        color: $ping1;
+    }
+    .sidebar-icon-3 {
+        color: $green1;
+    }
+}
+
 .sidebar-item {
     border: none !important;
+    padding-left: 0;
     .sidebar-link {
         text-decoration: none !important;
         color: #000000c4;

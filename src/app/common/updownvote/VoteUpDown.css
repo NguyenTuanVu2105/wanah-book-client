@@ -17,5 +17,12 @@
   cursor: pointer;
 }
 
+.hide:hover {
+  cursor: not-allowed;
+}
+
+.show:hover {
+  cursor: pointer;
+}
 
 

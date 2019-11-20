@@ -1,5 +1,6 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~antd/dist/antd.css';
+@import './asset/BaseColor.scss';
 
 body {
   margin: 0;
@@ -44,18 +45,13 @@ code {
   flex-direction: column;
 }
 #root {
-  background-color: #3C8DBC;
+  background-color: $violet1;
 }
 
 .app-body {
   min-height: 850px;
   margin-top: 20px;
   }
-  
-.homepage {
-height: 50px;
-background: #3C8DBC;
-}
 
 .col-1p5{
   flex: 0 0 20%;

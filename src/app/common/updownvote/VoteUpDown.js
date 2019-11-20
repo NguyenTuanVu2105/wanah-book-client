@@ -7,32 +7,31 @@ export class VoteUpDown extends React.Component {
     super();
 
     this.state = {
-      score: 0,
+      currentScore: 0,
+      score: 0
     };
-
-    this.increment = this.increment.bind(this);
-    this.decrement = this.decrement.bind(this);
   }
 
   render() {
     return (
       <div className="up-down">        
-        <FontAwesomeIcon className="count countUp" onClick={this.increment} icon="sort-up"></FontAwesomeIcon>
-        <div>{this.state.score}</div>
-        <FontAwesomeIcon className="count countDown" onClick={this.decrement} icon="sort-down"></FontAwesomeIcon>
+        <FontAwesomeIcon className="count countUp" onClick={this.onChangeScore("up")} icon="sort-up"></FontAwesomeIcon>
+        <div>{this.state.currentScore}</div>
+        <FontAwesomeIcon className="count countDown" onClick={this.onChangeScore("down")} icon="sort-down"></FontAwesomeIcon>
       </div>
     );
   }
 
-  increment() {
-    this.setState({
-      score: this.state.score + 1,
-    });
-  }
-
-  decrement() {
-    this.setState({
-      score: this.state.score - 1,
-    });
+  onChangeScore = (event) => () => {
+    if (event === "up" && (this.state.currentScore === this.state.score || this.state.currentScore < this.state.score)) {
+      this.setState({
+        currentScore: this.state.currentScore + 1
+      })
+    }
+    if (event === "down" && (this.state.currentScore === this.state.score || this.state.currentScore > this.state.score)) {
+      this.setState({
+        currentScore: this.state.currentScore - 1
+      })
+    }
   }
 }

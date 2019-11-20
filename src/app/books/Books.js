@@ -11,11 +11,10 @@ const Books = () => {
             <div className="book-row">
                 {
                     books.map((book, index) => (
-                        <BookCell image={book.image} name={book.name} star={book.star} ></BookCell>
+                        <BookCell image={book.image} name={book.name} star={book.star} ></BookCell> 
                     ))
                 }           
-            </div>
-            
+            </div>           
         </div>
     )
 }

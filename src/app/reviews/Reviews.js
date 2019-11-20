@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './Reviews.css'
+import './Reviews.scss'
 import StarRatings from 'react-star-ratings'
 import { reviews } from './data/Review'
 import { VoteUpDown } from '../common/updownvote/VoteUpDown'
@@ -8,24 +8,32 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Reviews = () => {
     const [showToggle, setShowToggle] = useState(false)
-    const onClick = () => {
+    const [sortBy, setSortBy] = useState("Mới nhất")
+    const onToggle = () => {
         setShowToggle(!showToggle)
+    }
+
+    const onSetSortBy = (newSortBy) => {
+        return () => {
+            setSortBy(newSortBy);
+            setShowToggle(!showToggle)
+        }
     }
 
     return (
         <div>
             <div className="title">
                 <div className="header-title"><b>Sắp xếp theo:</b></div>
-                <div className="header-filter" onClick={onClick}>Mới nhất</div>
+                <div className="header-filter" onClick={onToggle}> {sortBy} </div>
                 <div className="button-down"></div>
                 <div className="create-review">Tạo review</div>
             </div>
             {
                 showToggle && (
                     <div className="show-filter">
-                        <div className="filter-item">Mới nhất</div>
-                        <div className="filter-item">Mới nhất</div>
-                        <div className="filter-item">Mới nhất</div>
+                        <div className="filter-item" onClick={onSetSortBy("Mới nhất")}>Mới nhất</div>
+                        <div className="filter-item" onClick={onSetSortBy("Mới nhì")}>Mới nhì</div>
+                        <div className="filter-item" onClick={onSetSortBy("Mới ba")}>Mới ba</div>
                     </div>
                 )
             }
