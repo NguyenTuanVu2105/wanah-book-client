@@ -1,0 +1,16 @@
+.title {
+  display: flex;
+  height: 50px;
+  line-height: 50px;
+  align-items: center;
+}
+
+.header-filter {
+  min-width: 80px;
+}
+
+.header-title {
+  width: 110px;
+}
+
+
