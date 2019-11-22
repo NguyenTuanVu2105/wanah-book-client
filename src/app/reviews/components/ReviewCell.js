@@ -2,9 +2,7 @@ import React from 'react'
 import "./ReviewCell.scss"
 import { VoteUpDown } from '../../common/updownvote/VoteUpDown'
 import ShowMore from 'react-show-more'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import StarRatings from 'react-star-ratings'
-import {Link} from 'react-router-dom'
 
 const ReviewCell = (props) => {
     const {review} = props
