@@ -38,8 +38,7 @@ const Reviews = () => {
                 reviews.map((review, index)=>(
                     <ReviewCell review={review}></ReviewCell>
                 ))
-            }
-            
+            }            
         </div>
     )
 }

@@ -13,7 +13,8 @@ const { TabPane } = Tabs
 const User = () => {
     let {id} = useParams();
     let user = users.find(user => user.id === parseInt(id))
-    let bookIds = parseStringToList(user.books)
+     let bookIds = parseStringToList(user.books)
+    //  let bookIds = [1, 2, 3]
     let _books = bookIds.map(id => books.find(book => book.id === id))
 
     const buttons = (
