@@ -40,6 +40,66 @@ export const messages = [
         receiver: 6,
         content: "Chao em!!!",
         create_at: "5 phút trước"
+    },
+    {
+        sender: 1,
+        receiver: 6,
+        content: "Chao em!!!",
+        create_at: "5 phút trước"
+    },
+    {
+        sender: 6,
+        receiver: 1,
+        content: "Chao chi!!!",
+        create_at: "5 phút trước"
+    },
+    {
+        sender: 1,
+        receiver: 6,
+        content: "Chao em!!!",
+        create_at: "5 phút trước"
+    },
+    {
+        sender: 6,
+        receiver: 1,
+        content: "Chao chi!!!",
+        create_at: "5 phút trước"
+    },
+    {
+        sender: 1,
+        receiver: 6,
+        content: "Chao em!!!",
+        create_at: "5 phút trước"
+    },
+    {
+        sender: 1,
+        receiver: 6,
+        content: "Chao em!!!",
+        create_at: "5 phút trước"
+    },
+    {
+        sender: 6,
+        receiver: 1,
+        content: "Chao chi!!!",
+        create_at: "5 phút trước"
+    },
+    {
+        sender: 1,
+        receiver: 6,
+        content: "Chao em!!!",
+        create_at: "5 phút trước"
+    },
+    {
+        sender: 6,
+        receiver: 1,
+        content: "Chao chi!!!",
+        create_at: "5 phút trước"
+    },
+    {
+        sender: 1,
+        receiver: 6,
+        content: "Chao em!!!",
+        create_at: "5 phút trước"
     }
 ]
 
