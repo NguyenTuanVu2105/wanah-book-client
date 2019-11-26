@@ -29,7 +29,9 @@ const App = (props) => {
                 <Row type="flex" style={{minHeight: "calc(100vh - 65px)"}}>
                     {
                         true ?
-                            <AppSider /> :
+                            <div style={{width: "20%", backgroundColor: "white"}}>
+                                <AppSider />
+                            </div> :
                             null
                     }
                     <AppContent route={props.route}></AppContent>

@@ -16,26 +16,35 @@
         }
     }
     .messages-chat{
+        
         width:70%;
         background-color: #F0F2F5;
         margin: 0 0 0 -15px;
         .messages-chat-sender{
             display:flex;
             justify-content: flex-end;
-            padding: 10px;
+            padding: 10px 35px;
             .messages-chat-sender-content{
-                background-color: blue;
-                color: white;
+                background-color: #F23DA3;
+                color: #fff;
+                border-radius: 20px;
+                font-size: 15px;
+                font-family: inherit;
+                padding: 5px 7px;
             }
         }
         .messages-chat-receiver{
             display:flex;
             justify-content: flex-start;
-            padding: 10px;
+            padding: 10px 35px;
             .messages-chat-sender-content{
-                background-color:#faad14;
-                color: black;
+                background-color:#A6A600;
+                color: #fff;
                 margin: 6px 0 6px 10px;
+                border-radius: 20px;
+                font-size: 15px;
+                font-family: inherit;
+                padding: 5px 7px;
             }
             .messages-chat-box-content {
                 display: flex;

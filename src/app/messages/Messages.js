@@ -36,7 +36,7 @@ const Messages = () => {
                     placeholder="Aa"
                     enterButton="Gửi"
                     size="medium"
-                    style={{ position: 'absolute', bottom: 10, width: '68%', borderRadius: 30 }}
+                    style={{ position: 'absolute', bottom: 5, width: '68%', borderRadius: 30 }}
                     onSearch={value => console.log(value)}
                 />
 
