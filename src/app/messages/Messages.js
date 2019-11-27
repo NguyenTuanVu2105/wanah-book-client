@@ -10,7 +10,7 @@ const Messages = () => {
     return (
         <div className="messages">
             <div className="messages-chat">
-                <div style={{height: "calc(100vh - 105px)", overflow: "overlay"}}>
+                <div style={{height: "calc(100vh - 101px)", overflow: "overlay"}}>
                     {
                         messages.map(message => {
                             if (message.sender === user_id) {
@@ -46,7 +46,7 @@ const Messages = () => {
                 <Search
                     placeholder="Tìm kiếm"
                     onSearch={value => console.log(value)}
-                    style={{ borderRadius: "0", marginBottom: '10px' }}
+                    style={{ borderRadius: "0", marginBottom: '10px', zIndex: 0 }}
                     size="small"
                 />
                 {

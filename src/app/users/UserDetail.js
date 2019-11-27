@@ -23,7 +23,7 @@ const UserDetail = (props) => {
             </div>
             <div className="book-review">
                 <Button type="danger" className="button-book">Tủ sách của tôi</Button>
-                <Button type="shipped" className="button-review">Reviews</Button>
+                <Button type="shipped" className="button-review-user">Reviews</Button>
                 
             </div>
         </div>

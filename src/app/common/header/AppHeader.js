@@ -9,7 +9,7 @@ const { Option } = Select
 
 const AppHeader = () => {
   const menu = (
-    <Menu>
+    <Menu style={{zIndex: 1000000000}}>
       <Menu.Item key="0">
         <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
           Xem hô sơ

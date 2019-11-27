@@ -6,6 +6,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    // box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
+
+.user-detail:hover {
     box-shadow: 0 0 11px rgba(33,33,33,.2);
 }
 
@@ -56,7 +60,7 @@
     border-color: #AB3EEA !important;
 }
 
-.button-review {
+.button-review-user {
     background-color: #A4F600 !important;
     border-color: #A4F600 !important;
 }

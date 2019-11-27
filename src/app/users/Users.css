@@ -6,18 +6,22 @@
   }
   
   .title .create-review {
-    border: 1px solid #d0d0d0;
+    border: none;
     width: 100px;
     height: 30px;
-    background-color: "#BFBF30";
+    background-color: #FFFF00;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fff;
+    color: #000;
     position: absolute;
     right: 53px;
   }
   
+  .create-review:hover {
+    background-color: #FFFF73;
+  }
+
   .header-filter {
     min-width: 80px;
   }
