@@ -26,10 +26,12 @@ const App = (props) => {
         <Layout>
             <AppHeader />
             <Content style={{ padding: '0 50px', marginTop: 64 }}>
-                <Row type="flex">
+                <Row type="flex" style={{minHeight: "calc(100vh - 65px)"}}>
                     {
                         true ?
-                            <AppSider /> :
+                            <div style={{width: "20%", backgroundColor: "white"}}>
+                                <AppSider />
+                            </div> :
                             null
                     }
                     <AppContent route={props.route}></AppContent>

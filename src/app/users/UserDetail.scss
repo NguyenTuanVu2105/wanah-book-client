@@ -1,0 +1,66 @@
+.user-detail {
+    width: 90%;
+    border: 1px solid #0000001f;
+    margin: auto;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
+
+.user-detail:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
+
+.image-avatar-user {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+}
+
+.infor-user {
+    width: 50%;
+    margin-right: 6%;
+}
+
+.book-review {
+    display: flex;
+    flex-direction: column;
+}
+
+.book-review button {
+    margin-bottom: 10px;
+}
+
+.user-wrap {
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 20px;
+}
+
+.user-message {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.user-address {
+    color: rgb(181, 81, 235);
+    font-weight: 500;
+}
+
+.user-name {
+    margin: 8px 0px;
+}
+
+.button-book {
+    background-color: #AB3EEA !important;
+    border-color: #AB3EEA !important;
+}
+
+.button-review-user {
+    background-color: #A4F600 !important;
+    border-color: #A4F600 !important;
+}
