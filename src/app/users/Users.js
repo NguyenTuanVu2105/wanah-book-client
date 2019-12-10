@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import './Users.css'
+import {userDatas} from './data/userDetail'
+import UserDetail from './UserDetail'
 
 const Users = () => {  
     const [showToggle, setShowToggle] = useState(false)

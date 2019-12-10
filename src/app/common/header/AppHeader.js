@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Layout, Row, Col, Input, Select, Dropdown, Avatar, Menu } from 'antd';
 import './AppHeader.scss'
 import { logout } from '../../../api/auth/auth';
+import AppContext from '../../../AppContext';
 
 const { Header } = Layout
 const { Search } = Input;
 const { Option } = Select
 
 const AppHeader = () => {
+  const context = useContext(AppContext)
+  const myUser = context.user
+
   const menu = (
     <Menu style={{zIndex: 1000000000}}>
       <Menu.Item key="0">
@@ -52,10 +56,9 @@ const AppHeader = () => {
         <Col>
           <Dropdown overlay={menu} placement="bottomLeft" getPopupContainer={() => document.getElementById("user-dropdown")}>
             <div id="user-dropdown" style={{height: 30, display: "flex", alignItems: "center"}}>
-              <Avatar style={{ backgroundColor: "orange", verticalAlign: 'middle' }} size="small">
-                N
+              <Avatar src={myUser.avatar} size="small">
               </Avatar>
-              <strong style={{ marginLeft: "10px", color: "#ffffffc4" }}>Ngoc Trinh</strong>
+              <strong style={{ marginLeft: "10px", color: "#ffffffc4" }}>{myUser.name}</strong>
             </div>
           </Dropdown>
         </Col>

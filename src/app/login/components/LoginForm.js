@@ -80,7 +80,7 @@ const LoginFormWrapper = (props) => {
       </div>   
       <div className="wrap-login-form-btn">
         <div className="login-form-bgbtn"></div>
-        <button className="login-form-btn" htmlType="submit">
+        <button className="login-form-btn" type="submit">
           Đăng nhập
           </button>
       </div>        
