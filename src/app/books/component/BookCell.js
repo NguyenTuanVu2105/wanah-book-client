@@ -8,7 +8,7 @@ const BookCell = (props) => {
     <Link to="/" className="book-cell">
       <div className="wrap-book">
         <div className="image">
-          <img src={props.image} className="image-book"></img>
+          <img src={props.image} alt={props.name} className="image-book"></img>
         </div>
         <div className="content-book">
           <label className="book-name">{props.name}</label>

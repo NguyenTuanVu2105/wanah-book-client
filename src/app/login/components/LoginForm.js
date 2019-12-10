@@ -1,17 +1,34 @@
 import React, {useState} from 'react';
 import "./LoginForm.scss";
-import { FaEye } from 'react-icons/fa'
 import {Form, Icon, Input} from 'antd'
+import {withRouter} from 'react-router-dom'
+import { login } from '../../../api/base/auth';
+import Paths from '../../../routes/Paths';
+import {setUserCookies} from '../../../api/auth/auth'
 
 const LoginFormWrapper = (props) => {
   const { getFieldDecorator } = props.form;
-  const [messages, setMessages] = useState([])
+  const [messages, setMessages] = useState('')
+  const handleLogin = (data) => {
+      if (data.success) {
+        setUserCookies(data.accessToken, data.id, data.name, data.avatar)
+      }
+  }
+  const submitLogin = async (values) => {
+    const {success, data} = await login(values)
+    if (success) {
+      handleLogin(data)
+      props.history.push(Paths.HomePage)
+    } else {
+      setMessages(data)
+    }
+  } 
+
   const handleSubmit = e => {
     e.preventDefault();
     props.form.validateFields((err, values) => {
       if (!err) {
-        setMessages(["sad"])
-        console.log('Received values of form: ', values);
+        submitLogin(values)
       }
     });
   }
@@ -30,20 +47,20 @@ const LoginFormWrapper = (props) => {
         </div>
       </div>  
       {
-        messages && messages.map(message => (
+        messages && (
           <div className="error-submit">
-          {message}
+          {messages}
         </div>
-        ))
+        )
       }
       <div className="login-form">
       <Form.Item>
-          {getFieldDecorator('username', {
+          {getFieldDecorator('email', {
             rules: [{ required: true, message: 'Nhập email!' }],
           })(
             <Input
-              prefix={<Icon type="user" className="login-input" />}
-              placeholder="Username"
+              prefix={<Icon type="mail" className="login-input" />}
+              placeholder="Email"
               size="large"
             />,
           )}
@@ -83,4 +100,4 @@ const LoginFormWrapper = (props) => {
 
 const LoginForm = Form.create({ name: 'normal_login' })(LoginFormWrapper);
 
-export default LoginForm;
+export default withRouter(LoginForm);

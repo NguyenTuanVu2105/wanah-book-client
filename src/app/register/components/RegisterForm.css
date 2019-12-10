@@ -192,6 +192,13 @@
     margin-right: 50px;
 }
 
+.error-message {
+    padding-top: 10px;
+    color: red;
+    font-size: 14px;
+    min-height: 20px;
+}
+
 .form input {
     border-radius: 5px;
 }

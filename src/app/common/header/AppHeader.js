@@ -1,9 +1,9 @@
 import React from 'react'
 import { Layout, Row, Col, Input, Select, Dropdown, Avatar, Menu } from 'antd';
-import { Link } from 'react-router-dom'
 import './AppHeader.scss'
+import { logout } from '../../../api/auth/auth';
 
-const { Header, Content } = Layout
+const { Header } = Layout
 const { Search } = Input;
 const { Option } = Select
 
@@ -25,7 +25,7 @@ const AppHeader = () => {
         Đổi mật khẩu
           </Menu.Item>
       <Menu.Item key="4">
-        Đăng xuất
+        <div onClick={logout}>Đăng xuất</div>
           </Menu.Item>
     </Menu>
   );
@@ -34,7 +34,7 @@ const AppHeader = () => {
     <Header style={{ position: 'fixed', zIndex: 1, width: '100%', background: "#8900d4" }}>
       <Row className="header" justify="space-between" align="middle" type="flex">
         <Col>
-          <img src="./asset/logo.png" style={{ height: 64 }}></img>
+          <img src="./asset/logo.png" alt="" style={{ height: 64 }}></img>
         </Col>
         <Col xs={8} className="flex-center">
           <Select id="search-select" defaultValue="book" showArrow={false} getPopupContainer={() => document.getElementById("search-select")}>

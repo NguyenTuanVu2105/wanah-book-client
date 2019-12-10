@@ -1,17 +1,35 @@
  import React from 'react';
  import "./RegisterForm.css";
-import {Form, Input, Button} from 'antd'
+import {Form, Input, Button, notification} from 'antd'
+import { register } from '../../../api/base/auth';
+import { withRouter } from 'react-router-dom'
+import Paths from '../../../routes/Paths';
 
 class RegisterForm extends React.Component {
   state = {
     confirmDirty: false,
-    messages: []
+    messages: ''
   };
+
+  validateNumberCharacter8To20 = (rule, value, callback) => {
+    if (value.length < 8 && value > 20) {
+      callback('Nhập từ 8-20 ký tự')
+    }
+    callback()
+  }
+
+  validateNumberCharacter8To30 = (rule, value, callback) => {
+    if (value.length < 8 && value > 30) {
+      callback('Nhập từ 8-30 ký tự')
+    } else {
+      callback()
+    }   
+  }
 
   validateToNextPassword = (rule, value, callback) => {
     const { form } = this.props;
     if (value && this.state.confirmDirty) {
-      form.validateFields(['confirm'], { force: true });
+      form.validateFields(['passwordConfirm'], { force: true });
     }
     callback();
   };
@@ -19,7 +37,7 @@ class RegisterForm extends React.Component {
   compareToFirstPassword = (rule, value, callback) => {
     const { form } = this.props;
     if (value && value !== form.getFieldValue('password')) {
-      callback('mật khẩu không trùng khớp');
+      callback('Mật khẩu không trùng khớp');
     } else {
       callback();
     }
@@ -30,14 +48,26 @@ class RegisterForm extends React.Component {
     this.setState({ confirmDirty: this.state.confirmDirty || !!value });
   };
 
+  submitRegister = async (values) => {
+    const {success, data} = await register(values)
+    if (success) {
+      notification['success']({
+        message: 'Đăng ký thành công',
+      });
+      this.props.history.push(Paths.Login)
+    } else {
+      this.setState({
+        message: data
+      })
+    }
+  }
+    
+
   handleSubmit = e => {
       e.preventDefault();
       this.props.form.validateFields((err, values) => {
         if (!err) {
-          console.log('Received values of form: ', values);
-          this.setState({
-            messages: ["asd"]
-          })
+          this.submitRegister(values)
         }
       });
   };
@@ -54,16 +84,15 @@ class RegisterForm extends React.Component {
             Tạo tài khoản
                 </div>
                 {
-        this.state.messages && this.state.messages.map(message => (
-          <div className="error-submit">
-          {message}
+        this.state.message && 
+          <div className="error-message">
+          {this.state.message}
         </div>
-        ))
       }
           <Form.Item style={{margin:"20px 0 0 0"}}>
             <Form.Item style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
               {
-                getFieldDecorator('first-name', {
+                getFieldDecorator('first_name', {
                   rules: [
                     {
                       required: true,
@@ -76,7 +105,7 @@ class RegisterForm extends React.Component {
             <span style={{ display: 'inline-block', width: '24px', textAlign: 'center' }}></span>
             <Form.Item style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
             {
-                getFieldDecorator('last-name', {
+                getFieldDecorator('last_name', {
                   rules: [
                     {
                       required: true,
@@ -98,6 +127,9 @@ class RegisterForm extends React.Component {
                     required: true,
                     message: 'Nhập E-mail.',
                   },
+                  {
+                    validator: this.validateNumberCharacter8To30,
+                  }
                 ],
               })(<Input placeholder="Email"/>)}
             </Form.Item>
@@ -111,11 +143,14 @@ class RegisterForm extends React.Component {
                     {
                       validator: this.validateToNextPassword,
                     },
+                    {
+                      validator: this.validateNumberCharacter8To20,
+                    }
                   ],
                 })(<Input.Password placeholder="Mật khẩu"/>)}
           </Form.Item>
         <Form.Item hasFeedback>
-          {getFieldDecorator('confirm', {
+          {getFieldDecorator('passwordConfirm', {
             rules: [
               {
                 required: true,
@@ -124,6 +159,9 @@ class RegisterForm extends React.Component {
               {
                 validator: this.compareToFirstPassword,
               },
+              {
+                validator: this.validateNumberCharacter8To20,
+              }
             ],
           })(<Input.Password placeholder="Nhập lại mật khẩu" onBlur={this.handleConfirmBlur} />)}
         </Form.Item>
@@ -152,7 +190,7 @@ class RegisterForm extends React.Component {
 }
 
 RegisterForm = Form.create({ name: 'register' })(RegisterForm);
-export default RegisterForm;
+export default withRouter(RegisterForm);
 
 
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import './Messages.scss'
-import { Input, Avatar, message, Button } from "antd"
+import {Input, Avatar} from "antd"
 
 import { user_contact, messages } from './data/Message'
 const { Search } = Input
