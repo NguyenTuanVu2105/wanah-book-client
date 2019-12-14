@@ -55,7 +55,7 @@ const HomePage = () => {
             </div>
             <div className="homepage-title flex-space">
                 <p>Review</p>
-                <Link className="show-more" to="/books">Xem thêm&nbsp;></Link>
+                <Link className="show-more" to="/reviews">Xem thêm&nbsp;></Link>
             </div>
             <div className="homepage-review">
                 {reviews.slice(0, 3).map((review,index) => (

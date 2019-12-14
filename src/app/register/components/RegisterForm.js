@@ -1,25 +1,43 @@
  import React from 'react';
- import "./RegisterForm.css";
+ import "./RegisterForm.scss";
 import {Form, Input, Button, notification} from 'antd'
 import { register } from '../../../api/base/auth';
 import { withRouter } from 'react-router-dom'
 import Paths from '../../../routes/Paths';
+import AddressModal from './AddressModal'
 
 class RegisterForm extends React.Component {
   state = {
     confirmDirty: false,
-    messages: ''
+    messages: '',
+    visible: false,
+    address: 'adas',
+    position: {lat: 1, lng:2}
   };
-
+  setVisible = (vis) => {
+    this.setState({
+      visible: vis
+    })
+  }
+  setAddress = (addr) => {
+    this.setState({
+      address: addr
+    })
+  }
+  setPosition = (pos) => {
+    this.setState({
+      position: pos
+    })
+  }
   validateNumberCharacter8To20 = (rule, value, callback) => {
-    if (value.length < 8 && value > 20) {
+    if (value && (value.length < 8 || value.length > 20)) {
       callback('Nhập từ 8-20 ký tự')
     }
     callback()
   }
 
   validateNumberCharacter8To30 = (rule, value, callback) => {
-    if (value.length < 8 && value > 30) {
+    if (value && (value.length < 8 || value.length > 30)) {
       callback('Nhập từ 8-30 ký tự')
     } else {
       callback()
@@ -67,7 +85,9 @@ class RegisterForm extends React.Component {
       e.preventDefault();
       this.props.form.validateFields((err, values) => {
         if (!err) {
-          this.submitRegister(values)
+          const address = this.state.address
+          const position = this.state.position
+          this.submitRegister({...values, address, ...position})
         }
       });
   };
@@ -126,9 +146,6 @@ class RegisterForm extends React.Component {
                   {
                     required: true,
                     message: 'Nhập E-mail.',
-                  },
-                  {
-                    validator: this.validateNumberCharacter8To30,
                   }
                 ],
               })(<Input placeholder="Email"/>)}
@@ -165,7 +182,10 @@ class RegisterForm extends React.Component {
             ],
           })(<Input.Password placeholder="Nhập lại mật khẩu" onBlur={this.handleConfirmBlur} />)}
         </Form.Item>
-          
+        <Form.Item>
+                <Input disabled value={this.state.address} placeholder="Địa chỉ"/>
+                <strong onClick={() => this.setVisible(!this.state.visible)} className='confirm-address'>Xác nhận địa chỉ tại đây</strong>
+            </Form.Item>
           <div className="footer-register">
             <div className="login">
               <a href="/login">Đăng nhập</a>
@@ -184,6 +204,15 @@ class RegisterForm extends React.Component {
             <p className="name">WannahBook</p>
           </div>
         </div>
+        <AddressModal 
+          address={this.state.address}  
+          visible={this.state.visible} 
+          setVisible={this.setVisible}
+          setAddress={this.setAddress}
+          position={this.position}
+          setPosition={this.setPosition}
+        >
+        </AddressModal>
       </Form>
     )
   }

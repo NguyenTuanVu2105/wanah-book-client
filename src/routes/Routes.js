@@ -10,7 +10,7 @@ import Messages from '../app/messages/Messages'
 import Users from '../app/users/Users'
 import Notifications from '../app/notifications/Notifications'
 import User from "../app/users/User"
-
+import MapTest from "../app/register/components/MapConfirm"
 const routes = [
     {
         path: Paths.Login,
@@ -22,11 +22,11 @@ const routes = [
         exact: true,
         component: RegisterContainer
     },
-    // {
-    //     path: Paths.Messages, 
-    //     exact: true,
-    //     component: Messages
-    // },
+    {
+        path: '/test',
+        exact: true,
+        component: MapTest
+    },
     {
         component: App,
         routes: [
@@ -64,7 +64,7 @@ const routes = [
                 path: Paths.Messages,
                 exact: true,
                 component: Messages
-            },
+            }
         ]
     },
 ]

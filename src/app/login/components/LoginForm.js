@@ -10,12 +10,13 @@ const LoginFormWrapper = (props) => {
   const { getFieldDecorator } = props.form;
   const [messages, setMessages] = useState('')
   const handleLogin = (data) => {
-      if (data.success) {
+      if (data.Success) {
         setUserCookies(data.accessToken, data.id, data.name, data.avatar)
       }
   }
   const submitLogin = async (values) => {
     const {success, data} = await login(values)
+    console.log(data.Success)
     if (success) {
       handleLogin(data)
       props.history.push(Paths.HomePage)
