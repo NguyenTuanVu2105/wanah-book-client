@@ -3,6 +3,7 @@ import { Layout, Row, Col, Input, Select, Dropdown, Avatar, Menu } from 'antd';
 import './AppHeader.scss'
 import { logout } from '../../../api/auth/auth';
 import AppContext from '../../../AppContext';
+import { parseImage } from '../../../helper/parse/parser';
 
 const { Header } = Layout
 const { Search } = Input;
@@ -38,7 +39,7 @@ const AppHeader = () => {
     <Header style={{ position: 'fixed', zIndex: 1, width: '100%', background: "#8900d4" }}>
       <Row className="header" justify="space-between" align="middle" type="flex">
         <Col>
-          <img src="./asset/logo.png" alt="" style={{ height: 64 }}></img>
+          <img src={parseImage("asset/logo.png")} alt="" style={{ height: 64 }}></img>
         </Col>
         <Col xs={8} className="flex-center">
           <Select id="search-select" defaultValue="book" showArrow={false} getPopupContainer={() => document.getElementById("search-select")}>
@@ -56,7 +57,7 @@ const AppHeader = () => {
         <Col>
           <Dropdown overlay={menu} placement="bottomLeft" getPopupContainer={() => document.getElementById("user-dropdown")}>
             <div id="user-dropdown" style={{height: 30, display: "flex", alignItems: "center"}}>
-              <Avatar src={myUser.avatar} size="small">
+              <Avatar src={parseImage(myUser.avatar)} size="small">
               </Avatar>
               <strong style={{ marginLeft: "10px", color: "#ffffffc4" }}>{myUser.name}</strong>
             </div>

@@ -11,8 +11,8 @@ class RegisterForm extends React.Component {
     confirmDirty: false,
     messages: '',
     visible: false,
-    address: 'adas',
-    position: {lat: 1, lng:2}
+    address: '',
+    position: null
   };
   setVisible = (vis) => {
     this.setState({
@@ -209,7 +209,7 @@ class RegisterForm extends React.Component {
           visible={this.state.visible} 
           setVisible={this.setVisible}
           setAddress={this.setAddress}
-          position={this.position}
+          position={this.state.position}
           setPosition={this.setPosition}
         >
         </AddressModal>

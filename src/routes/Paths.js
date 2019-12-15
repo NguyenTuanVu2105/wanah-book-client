@@ -9,6 +9,7 @@ const Paths = {
     Messages: "/messages",
     Users: "/users",
     UserDetail: "/user/:id",
+    BookDetail: "/book/:id"
 }
 
 export default Paths

@@ -45,6 +45,10 @@ code {
   flex-direction: column;
 }
 
+.flex {
+  display: flex;
+}
+
 .flex-space {
   display: flex;
   justify-content: space-between;

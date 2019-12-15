@@ -10,6 +10,7 @@ import Messages from '../app/messages/Messages'
 import Users from '../app/users/Users'
 import Notifications from '../app/notifications/Notifications'
 import User from "../app/users/User"
+import BookDetail from "../app/books/BookDetail"
 import MapTest from "../app/register/components/MapConfirm"
 const routes = [
     {
@@ -59,6 +60,11 @@ const routes = [
                 path: Paths.UserDetail,
                 exact: true,
                 component: User
+            },
+            {
+                path: Paths.BookDetail,
+                exact: true,
+                component: BookDetail
             },
             {
                 path: Paths.Messages,

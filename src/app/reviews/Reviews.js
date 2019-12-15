@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Reviews.scss'
 import ReviewCell from './components/ReviewCell'
 import { reviews } from './data/Review'
+import AddReviewModal from './components/AddReviewModal'
 
 const Reviews = () => {
     const [showToggle, setShowToggle] = useState(false)
@@ -38,7 +39,8 @@ const Reviews = () => {
                 reviews.map((review, index)=>(
                     <ReviewCell review={review}></ReviewCell>
                 ))
-            }            
+            }    
+            <AddReviewModal visible={true}></AddReviewModal>        
         </div>
     )
 }

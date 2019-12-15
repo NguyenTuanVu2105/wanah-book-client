@@ -12,10 +12,10 @@ const MapConfirm = (props) => {
 
   const mapRef = useRef(null)
   const [hasLocation, setHasLocation] = useState(false)
-  const {address, setAddress, position: currentPos, setPosition: setCurrentPos} = props
+  const {address, setAddress, position , setPosition} = props
 
   const handleClick = (e) => {
-    setCurrentPos(e.latlng)
+    setPosition(e.latlng)
   }
 
   useEffect(()=> {
@@ -27,30 +27,30 @@ const MapConfirm = (props) => {
     const gencoder = L.control.geocoder(key, options);
     gencoder.addTo(map)
     gencoder.on('select', function({latlng, feature}) {
-      setCurrentPos(latlng)
+      setPosition(latlng)
       console.log(feature)
     })
     if (map != null) {
       map.locate()
     }
   }, [])
-
+  console.log(position)
   useEffect(() => {
-    if (currentPos) {
-      axios.get(`https://api.jawg.io/places/v1/reverse?access-token=${key}&point.lat=${currentPos.lat}&point.lon=${currentPos.lng}&size=1&boundary.circle.radius=${10}&layers=address`)
+    if (position) {
+      axios.get(`https://api.jawg.io/places/v1/reverse?access-token=${key}&point.lat=${position.lat}&point.lon=${position.lng}&size=1&boundary.circle.radius=${10}&layers=address`)
       .then(result => {
         setAddress(result.data.features[0].properties.label)
       })
     }
-  }, [currentPos])
+  }, [position])
 
   const handleLocationFound = (e) => {
     setHasLocation(true)
-    setCurrentPos(e.latlng)
+    setPosition(e.latlng)
   }
 
   const marker = hasLocation ? (
-    <Marker position={currentPos}>
+    <Marker position={position}>
       <Popup>{address}</Popup>
     </Marker>
   ) : null
@@ -58,7 +58,7 @@ const MapConfirm = (props) => {
   return (
     <div>
           <LeafletMap 
-      center={currentPos} 
+      center={position} 
       zoom={15}
       ref={mapRef} 
       onLocationfound={handleLocationFound}
@@ -68,7 +68,7 @@ const MapConfirm = (props) => {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url='http://mt0.google.com/vt/lyrs=m&hl=vi&x={x}&y={y}&z={z}'
       />
-      {    currentPos && <Marker position={currentPos}>
+      {    position && <Marker position={position}>
             <Popup>{address}</Popup>
           </Marker>}
     </LeafletMap>

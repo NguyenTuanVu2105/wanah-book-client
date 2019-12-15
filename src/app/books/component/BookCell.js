@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 
 const BookCell = (props) => {
   return (
-    <Link to="/" className="book-cell">
+    <Link to={`/book/${props.id}`} className="book-cell">
       <div className="wrap-book">
         <div className="image">
           <img src={props.image} alt={props.name} className="image-book"></img>

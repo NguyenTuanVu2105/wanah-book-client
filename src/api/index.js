@@ -35,20 +35,22 @@ export const createApiRequest = async ({ url, method, data, params }) => {
 export const createAuthApiRequest = async ({ url, method, data, params, isFormData , props}) => {
     try {
         const token = getCookie(COOKIE_KEY.TOKEN)
-        const { data: resp } = await axios({
-            method,
-            url: `${baseUrl}${url}`,
-            data,
-            params,
-            headers: {
-                'x-access-token': `${token}`,
-                ...isFormData && {'Content-Type': 'multipart/form-data'},
+        if (token) {
+            const { data: resp } = await axios({
+                method,
+                url: `${baseUrl}${url}`,
+                data,
+                params,
+                headers: {
+                    'x-access-token': `${token}`,
+                    ...isFormData && {'Content-Type': 'multipart/form-data'},
+                }
+            })
+    
+            return {
+                success: true,
+                data: resp,
             }
-        })
-
-        return {
-            success: true,
-            data: resp,
         }
     } catch (e) {
         const { response } = e
