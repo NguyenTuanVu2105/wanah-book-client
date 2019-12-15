@@ -5,78 +5,78 @@ export const reviews = [
     reviewStar: 2.5,
     reviewDate: "13/11/2019 05:20",
     reviewContent: "Ấy! Sự đời lại cứ thường như vậy đấy. Người ta đã định rồi chẳng bao giờ người ta làm được. Hai đứa mê nhau lắm. Bố mẹ đứa con gái biết vậy, nên cũng bằng lòng gả. Nhưng họ thách nặng quá: nguyên tiền mặt phải một trăm đồng bạc, lại còn cau, còn rượu... cả cưới nữa thì mất đến cứng hai trăm bạc. Lão Hạc không lo được. Ý thằng con lão, thì nó muốn bán vườn, cố lo cho bằng được. Nhưng lão không cho bán. Ai lại bán vườn đi mà lấy vợ? Vả lại bán vườn đi, thì cưới vợ về, ở đâu? Với lại, nói cho cùng nữa, nếu đằng nhà gái họ cứ khăng khăng đòi như vậy, thì dẫu có bán vườn đi cũng không đủ cưới. Lão Hạc biết vậy đấy, nhưng cũng không dám xẵng. Lão tìm lời lẽ giảng giải cho con trai hiểu. Lão khuyên nó hãy dằn lòng bỏ đám này, để rồi gắng lại ít lâu, xem có đám nào khác mà nhẹ tiền hơn sẽ liệu; chẳng lấy đứa này thì lấy đứa khác; làng này đã chết hết con gái đâu mà sợ?",
-    reviewBook: "https://sudospaces.com/chanhtuoi-com/uploads/2014/09/toi_thay_hoa_vang-x240.jpg"
+    reviewBook: "https://gacsach.com/sites/gacsach.com/files/styles/190x260/public/ngoi-khoc-tren-cay.jpg?itok=Z4CyQLN0"
   },
   {
-    reviewAvatarUser: "https://sudospaces.com/chanhtuoi-com/uploads/2014/09/toi_thay_hoa_vang-x240.jpg",
+    reviewAvatarUser: "https://gacsach.com/sites/gacsach.com/files/styles/190x260/public/cho-toi-mot-ve-di-tuoi-tho.jpg?itok=i-nHNb74",
     reviewUserName: "Hoa Vàng",
     reviewStar: 4,
     reviewDate: "13/11/2019 05:20",
     reviewContent: "Sách siêu bổ ích, thích hợp với nhưng người fa lâu lăm như mình. Rất mong tìm được những cuốn hay như thế này",
-    reviewBook: "https://sudospaces.com/chanhtuoi-com/uploads/2014/09/toi_thay_hoa_vang-x240.jpg"
+    reviewBook: "https://gacsach.com/sites/gacsach.com/files/styles/190x260/public/cho-toi-mot-ve-di-tuoi-tho.jpg?itok=i-nHNb74",
   },
   {
-    reviewAvatarUser: "https://sudospaces.com/chanhtuoi-com/uploads/2014/09/toi_thay_hoa_vang-x240.jpg",
+    reviewAvatarUser: "https://gacsach.com/sites/gacsach.com/files/styles/190x260/public/co-gai-den-tu-hom-qua.jpg?itok=SqvhtSLC",
     reviewUserName: "Hoa Vàng",
     reviewStar: 3,
     reviewDate: "13/11/2019 05:20",
     reviewContent: "Sách siêu bổ ích, thích hợp với nhưng người fa lâu lăm như mình. Rất mong tìm được những cuốn hay như thế này",
-    reviewBook: "https://sudospaces.com/chanhtuoi-com/uploads/2014/09/toi_thay_hoa_vang-x240.jpg"
+    reviewBook: "https://gacsach.com/sites/gacsach.com/files/styles/190x260/public/co-gai-den-tu-hom-qua.jpg?itok=SqvhtSLC",
   },
   {
-    reviewAvatarUser: "https://sudospaces.com/chanhtuoi-com/uploads/2014/09/toi_thay_hoa_vang-x240.jpg",
+    reviewAvatarUser: "https://gacsach.com/sites/gacsach.com/files/styles/190x260/public/ha-do.jpg?itok=74pJEdry",
     reviewUserName: "Hoa Vàng",
     reviewStar: 2,
     reviewDate: "13/11/2019 05:20",
     reviewContent: "Sách siêu bổ ích, thích hợp với nhưng người fa lâu lăm như mình. Rất mong tìm được những cuốn hay như thế này",
-    reviewBook: "https://sudospaces.com/chanhtuoi-com/uploads/2014/09/toi_thay_hoa_vang-x240.jpg"
+    reviewBook: "https://gacsach.com/sites/gacsach.com/files/styles/190x260/public/ha-do.jpg?itok=74pJEdry",
   },
   {
-    reviewAvatarUser: "https://sudospaces.com/chanhtuoi-com/uploads/2014/09/toi_thay_hoa_vang-x240.jpg",
+    reviewAvatarUser: "https://gacsach.com/sites/gacsach.com/files/styles/190x260/public/ngoi-khoc-tren-cay.jpg?itok=Z4CyQLN0",
     reviewUserName: "Hoa Vàng",
     reviewStar: 5,
     reviewDate: "13/11/2019 05:20",
     reviewContent: "Sách siêu bổ ích, thích hợp với nhưng người fa lâu lăm như mình. Rất mong tìm được những cuốn hay như thế này",
-    reviewBook: "https://sudospaces.com/chanhtuoi-com/uploads/2014/09/toi_thay_hoa_vang-x240.jpg"
+    reviewBook: "https://gacsach.com/sites/gacsach.com/files/styles/190x260/public/ngoi-khoc-tren-cay.jpg?itok=Z4CyQLN0",
   },
   {
-    reviewAvatarUser: "https://sudospaces.com/chanhtuoi-com/uploads/2014/09/toi_thay_hoa_vang-x240.jpg",
+    reviewAvatarUser: "https://gacsach.com/sites/gacsach.com/files/styles/book310/public/187763021-256-k909676.jpg?itok=GTqBDSKl-com",
     reviewUserName: "Hoa Vàng",
     reviewStar: 5,
     reviewDate: "13/11/2019 05:20",
     reviewContent: "Sách siêu bổ ích, thích hợp với nhưng người fa lâu lăm như mình. Rất mong tìm được những cuốn hay như thế này",
-    reviewBook: "https://sudospaces.com/chanhtuoi-com/uploads/2014/09/toi_thay_hoa_vang-x240.jpg"
+    reviewBook: "https://gacsach.com/sites/gacsach.com/files/styles/book310/public/187763021-256-k909676.jpg?itok=GTqBDSKl-com",
   },
   {
-    reviewAvatarUser: "https://sudospaces.com/chanhtuoi-com/uploads/2014/09/toi_thay_hoa_vang-x240.jpg",
+    reviewAvatarUser: "https://gacsach.com/sites/gacsach.com/files/styles/190x260/public/ngoi-khoc-tren-cay.jpg?itok=Z4CyQLN0",
     reviewUserName: "Hoa Vàng",
     reviewStar: 5,
     reviewDate: "13/11/2019 05:20",
     reviewContent: "Sách siêu bổ ích, thích hợp với nhưng người fa lâu lăm như mình. Rất mong tìm được những cuốn hay như thế này",
-    reviewBook: "https://sudospaces.com/chanhtuoi-com/uploads/2014/09/toi_thay_hoa_vang-x240.jpg"
+    reviewBook: "https://gacsach.com/sites/gacsach.com/files/styles/190x260/public/ngoi-khoc-tren-cay.jpg?itok=Z4CyQLN0",
   },
   {
-    reviewAvatarUser: "https://sudospaces.com/chanhtuoi-com/uploads/2014/09/toi_thay_hoa_vang-x240.jpg",
+    reviewAvatarUser: "https://gacsach.com/sites/gacsach.com/files/styles/190x260/public/ban-co-nam-cho-ngoi.gif?itok=0aYCLmr7",
     reviewUserName: "Hoa Vàng",
     reviewStar: 4,
     reviewDate: "13/11/2019 05:20",
     reviewContent: "Sách siêu bổ ích, thích hợp với nhưng người fa lâu lăm như mình. Rất mong tìm được những cuốn hay như thế này",
-    reviewBook: "https://sudospaces.com/chanhtuoi-com/uploads/2014/09/toi_thay_hoa_vang-x240.jpg"
+    reviewBook: "https://gacsach.com/sites/gacsach.com/files/styles/190x260/public/ngoi-khoc-tren-cay.jpg?itok=Z4CyQLN0",
   },
   {
-    reviewAvatarUser: "https://sudospaces.com/chanhtuoi-com/uploads/2014/09/toi_thay_hoa_vang-x240.jpg",
+    reviewAvatarUser: "https://gacsach.com/sites/gacsach.com/files/styles/190x260/public/con-chut-gi-de-nho.jpg?itok=JM5KkgFN",
     reviewUserName: "Hoa Vàng",
     reviewStar: 5,
     reviewDate: "13/11/2019 05:20",
     reviewContent: "Sách siêu bổ ích, thích hợp với nhưng người fa lâu lăm như mình. Rất mong tìm được những cuốn hay như thế này",
-    reviewBook: "https://sudospaces.com/chanhtuoi-com/uploads/2014/09/toi_thay_hoa_vang-x240.jpg"
+    reviewBook: "https://gacsach.com/sites/gacsach.com/files/styles/190x260/public/ban-co-nam-cho-ngoi.gif?itok=0aYCLmr7",
   },
   {
-    reviewAvatarUser: "https://sudospaces.com/chanhtuoi-com/uploads/2014/09/toi_thay_hoa_vang-x240.jpg",
+    reviewAvatarUser: "https://scontent.fhan3-1.fna.fbcdn.net/v/t1.0-9/14054030_280138129032213_994044697678893713_n.jpg?_nc_cat=109&_nc_oc=AQnS2WzIp0nqCGKauOvmD3CsxhQICZz9tYZmSDGZIUt_VCsO-77j7lsPhuFHpP5DVlQ&_nc_ht=scontent.fhan3-1.fna&oh=ba3391eb0c1229e3d49d416c9bba9c97&oe=5E5D8E65",
     reviewUserName: "Hoa Vàng",
     reviewStar: 5,
     reviewDate: "13/11/2019 05:20",
     reviewContent: "Sách siêu bổ ích, thích hợp với nhưng người fa lâu lăm như mình. Rất mong tìm được những cuốn hay như thế này",
-    reviewBook: "https://sudospaces.com/chanhtuoi-com/uploads/2014/09/toi_thay_hoa_vang-x240.jpg"
+    reviewBook: "https://scontent.fhan3-1.fna.fbcdn.net/v/t1.0-9/14054030_280138129032213_994044697678893713_n.jpg?_nc_cat=109&_nc_oc=AQnS2WzIp0nqCGKauOvmD3CsxhQICZz9tYZmSDGZIUt_VCsO-77j7lsPhuFHpP5DVlQ&_nc_ht=scontent.fhan3-1.fna&oh=ba3391eb0c1229e3d49d416c9bba9c97&oe=5E5D8E65",
   }
 ]
