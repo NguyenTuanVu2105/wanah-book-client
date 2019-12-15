@@ -1,44 +1,64 @@
-import React from 'react'
-import { Layout, Col, Row } from 'antd';
-import { renderRoutes } from 'react-router-config'
+import React, {useState, useEffect} from 'react'
+import { Layout, Row } from 'antd';
 import './App.scss'
+import { withRouter } from 'react-router-dom'
 import AppHeader from './app/common/header/AppHeader'
 import AppSider from './app/common/sidebar/AppSider';
 import AppContent from './app/common/content/AppContent'
-// import Content from './common/Content'
-// import { Row, Container } from 'react-bootstrap';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
+import { checkAuth, getUser } from './api/auth/auth';
+import AppContext from './AppContext';
 library.add(fab, fas)
 
-const { Header, Content } = Layout
+const { Content } = Layout
 
 const App = (props) => {
+    if (!checkAuth()) {
+        props.history.push('/login')
+    }
+    const [user, setUser] = useState({
+        id: null,
+        avatar: null,
+        name: null
+    })
+
+    const _fetchData = async () => {
+        const userCookies = await getUser()
+        setUser({
+            id: userCookies ? userCookies.id : null,
+            name: userCookies ? userCookies.name : null,
+            avatar: userCookies ? userCookies.avatar : null
+        })
+      }
+    
+      useEffect(() => {
+          _fetchData()
+      }, [])
+      console.log(user)
     return (
-        // <Container className="homepage">
-        //     <AppHeader></AppHeader>
-        //     <Row className="app-body">
-        //         <AppSider></AppSider>
-        //         <AppContent route={props.route}></AppContent>
-        //     </Row>
-        // </Container>  
-        <Layout>
-            <AppHeader />
-            <Content style={{ padding: '0 50px', marginTop: 64 }}>
-                <Row type="flex" style={{minHeight: "calc(100vh - 65px)"}}>
-                    {
-                        true ?
-                            <div style={{width: "20%", backgroundColor: "white"}}>
-                                <AppSider />
-                            </div> :
-                            null
-                    }
-                    <AppContent route={props.route}></AppContent>
-                </Row>
-            </Content>
-        </Layout>
+        <AppContext.Provider value = {{
+            user, 
+            setUser
+        }}>
+            <Layout>
+                <AppHeader />
+                <Content style={{ padding: '0 50px', marginTop: 64 }}>
+                    <Row type="flex" style={{minHeight: "calc(100vh - 65px)"}}>
+                        {
+                            true ?
+                                <div style={{width: "20%", backgroundColor: "white"}}>
+                                    <AppSider />
+                                </div> :
+                                null
+                        }
+                        <AppContent route={props.route}></AppContent>
+                    </Row>
+                </Content>
+            </Layout>
+        </AppContext.Provider>
     )
 }
 
-export default App
+export default withRouter(App)

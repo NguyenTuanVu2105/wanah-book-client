@@ -1,14 +1,40 @@
 import React, {useState} from 'react';
-import "./LoginForm.css";
-import { FaEye } from 'react-icons/fa'
+import "./LoginForm.scss";
+import {Form, Icon, Input} from 'antd'
+import {withRouter} from 'react-router-dom'
+import { login } from '../../../api/base/auth';
+import Paths from '../../../routes/Paths';
+import {setUserCookies} from '../../../api/auth/auth'
 
-const LoginForm = (props) => {
-  const [show, setShow] = useState(false)
-  const changeShowInput = () => {
-    setShow(!show)
+const LoginFormWrapper = (props) => {
+  const { getFieldDecorator } = props.form;
+  const [messages, setMessages] = useState('')
+  const handleLogin = (data) => {
+      if (data.Success) {
+        setUserCookies(data.accessToken, data.id, data.name, data.avatar)
+      }
+  }
+  const submitLogin = async (values) => {
+    const {success, data} = await login(values)
+    console.log(data.Success)
+    if (success) {
+      handleLogin(data)
+      props.history.push(Paths.HomePage)
+    } else {
+      setMessages(data)
+    }
+  } 
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    props.form.validateFields((err, values) => {
+      if (!err) {
+        submitLogin(values)
+      }
+    });
   }
   return (
-    <div>
+    <Form onSubmit={handleSubmit}>
       <div className="form-login">
       <div className="login-title">
         <div className="logo">
@@ -21,32 +47,42 @@ const LoginForm = (props) => {
           Đăng nhập để vào mạng xã hội <p>WannahBook</p> 
         </div>
       </div>  
-      <div className="login__form__alige">          
-        <div className="wrap-input">     
-          <div className="validate-input">
-            <input className="input" type="text" name="email" placeholder="Email" />
-          </div>                                 
+      {
+        messages && (
+          <div className="error-submit">
+          {messages}
         </div>
-        <div className="wrap-input">
-          <div className="validate-input">
-            <input className="input" 
-                  type={show ? "text": "password"} 
-                  name="password" 
-                  placeholder="Mật khẩu"
-                  />
-            {/* <span className="btn-show-pass">
-              
-            </span> */}
-            <FaEye className="icon-eye" onClick = {changeShowInput} 
-                  onMouseLeave = {() => setShow(false)}/>
-          </div>             
-        </div>    
-             
-      </div>    
+        )
+      }
+      <div className="login-form">
+      <Form.Item>
+          {getFieldDecorator('email', {
+            rules: [{ required: true, message: 'Nhập email!' }],
+          })(
+            <Input
+              prefix={<Icon type="mail" className="login-input" />}
+              placeholder="Email"
+              size="large"
+            />,
+          )}
+        </Form.Item>
+        <Form.Item>
+          {getFieldDecorator('password', {
+            rules: [{ required: true, message: 'Nhập Password!' }],
+          })(
+            <Input
+              prefix={<Icon type="lock" className="login-input" />}
+              type="password"
+              placeholder="Password"
+              size="large"
+            />,
+          )}
+        </Form.Item>
+      </div>   
       <div className="wrap-login-form-btn">
         <div className="login-form-bgbtn"></div>
-        <button className="login-form-btn">
-          Đăng ký
+        <button className="login-form-btn" type="submit">
+          Đăng nhập
           </button>
       </div>        
       <div className="text-center">
@@ -59,7 +95,10 @@ const LoginForm = (props) => {
         </a>
       </div>
     </div>
-    </div>
+    </Form>
   )
 }
-export default LoginForm;
+
+const LoginForm = Form.create({ name: 'normal_login' })(LoginFormWrapper);
+
+export default withRouter(LoginForm);

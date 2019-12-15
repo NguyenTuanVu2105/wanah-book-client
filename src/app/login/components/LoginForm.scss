@@ -96,6 +96,9 @@
     border-bottom: 2px solid #adadad;
     justify-content: center;
     display: flex;
+    .ant-input {
+        border: none ;
+    }
 }
 
 .icon-eye {
@@ -181,3 +184,16 @@
     }
 
     
+.login-form {
+    padding: 20px 40px 0 40px;
+    .ant-form-explain{
+        margin: 5px;
+    }
+}
+
+.error-submit {
+    padding: 0 40px;
+    color: red;
+    font-size: 14px;
+    min-height: 20px;
+}

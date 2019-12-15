@@ -1,6 +1,5 @@
 import React from 'react';
 import './UserDetail.scss'
-import ShowMore from 'react-show-more'
 import StarRatings from 'react-star-ratings'
 import { Button } from 'antd';
 

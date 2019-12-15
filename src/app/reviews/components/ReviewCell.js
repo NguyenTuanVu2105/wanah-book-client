@@ -9,28 +9,27 @@ const ReviewCell = (props) => {
     return (
         <div className="review-wrap">
         <div className="review-content">
-            <div class="column">
-                <img src={review.reviewAvatarUser} className="image-avatar-review"></img>
+            <div className="column">
+                <img src={review.reviewAvatarUser} alt="name" className="image-avatar-review"></img>
                 <div>
                     <p>{review.reviewUserName}</p>
-                    <p>
-                        <StarRatings rating={review.reviewStar} starRatedColor="#ffdc34" numberOfStars={5} starDimension="16px" starSpacing="5px">
+                    
+                    <StarRatings rating={review.reviewStar} starRatedColor="#ffdc34" numberOfStars={5} starDimension="16px" starSpacing="5px">
 
-                        </StarRatings>
-                    </p>
+                    </StarRatings>
                 </div>
                 <p>{review.reviewDate}</p>
             </div>                                
-            <p className="content-book-review">
+            <div className="content-book-review">
                 <ShowMore lines={4} more='Xem thêm' less='Rút gọn'>
                     {
                         review.reviewContent
                     }
                 </ShowMore>
                 
-            </p>                           
+            </div>                           
         </div>
-        <img src={review.reviewBook} className="image-book-review"></img>
+        <img src={review.reviewBook} alt="" className="image-book-review"></img>
          <VoteUpDown></VoteUpDown>      
     </div>   
     )

@@ -1,19 +1,7 @@
 import React, {useState} from 'react'
 import './Users.css'
-import {Card, Avatar} from 'antd'
-import User from './User'
-import {Tabs, Button} from 'antd'
-import {useParams} from 'react-router-dom'
-import {users} from './data/user'
-import {books} from '../books/data/Book'
-import BookCase from './components/BookCase'
-import Reviews from './components/Reviews'
-import {parseStringToList} from '../../helper/parse/parseString'
-import UserDetail from './UserDetail'
 import {userDatas} from './data/userDetail'
-const { TabPane } = Tabs
-
-const {Meta} = Card
+import UserDetail from './UserDetail'
 
 const Users = () => {  
     const [showToggle, setShowToggle] = useState(false)

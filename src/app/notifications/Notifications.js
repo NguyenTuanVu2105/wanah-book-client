@@ -1,8 +1,7 @@
 import React from 'react'
 import './Notifications.css'
-import { Card, Icon, Avatar, Button } from 'antd';
+import { Card, Avatar, Button } from 'antd';
 import {users} from './data/User'
-import { blue } from 'ansi-colors';
 
 const { Meta } = Card;
 
@@ -20,7 +19,7 @@ const Notifications = () => {
                         </div>
                     )
                     return (
-                        <div class="notification-raw">
+                        <div className="notification-raw">
                             <Card 
                                 className="notification-row"
                             >

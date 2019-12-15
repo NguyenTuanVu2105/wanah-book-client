@@ -1,6 +1,6 @@
 import Paths from '../../routes/Paths'
 import {getCookie, removeCookie, setCookie} from '../storage/cookies'
-import {COOKIE_KEY, getSessionStorage, SESSION_KEY} from '../storage/sessionStorage'
+import {COOKIE_KEY} from '../storage/sessionStorage'
 
 export const logout = () => {
     removeCookie(COOKIE_KEY.TOKEN);
@@ -15,9 +15,13 @@ export const getUser = () => {
     return token ? {
         token: token,
         name: getCookie(COOKIE_KEY.NAME),
-        userId: getCookie(COOKIE_KEY.USER_ID),
+        id: getCookie(COOKIE_KEY.USER_ID),
         avatar: getCookie(COOKIE_KEY.AVATAR)
     } : null
+}
+
+export const checkAuth = () => {
+    return getCookie(COOKIE_KEY.TOKEN) ? true : false
 }
 
 export const setUserCookies = (token, userId, name, avatar) => {

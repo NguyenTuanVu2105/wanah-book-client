@@ -21,11 +21,11 @@ const routes = [
         exact: true,
         component: RegisterContainer
     },
-    // {
-    //     path: Paths.Messages, 
-    //     exact: true,
-    //     component: Messages
-    // },
+    {
+        path: '/test',
+        exact: true,
+        component: MapTest
+    },
     {
         component: App,
         routes: [

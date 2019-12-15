@@ -1,7 +1,7 @@
 import React from 'react'
 import './HomePage.scss'
 import {Card} from 'antd'
-import {Link} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 import Paths from '../../routes/Paths'
 import {books} from '../books/data/Book'
 import BookCell from '../books/component/BookCell'
@@ -49,17 +49,17 @@ const HomePage = () => {
             <div className="homepage-book">
                 {
                     books.map((book, index) => (
-                            <BookCell image={book.image} name={book.name} star={book.star} author={book.author}></BookCell>                        
+                            <BookCell key={index} image={book.image} name={book.name} star={book.star} author={book.author}></BookCell>                        
                     ))
                 }     
             </div>
             <div className="homepage-title flex-space">
                 <p>Review</p>
-                <Link className="show-more" to="/books">Xem thêm&nbsp;></Link>
+                <Link className="show-more" to="/reviews">Xem thêm&nbsp;></Link>
             </div>
             <div className="homepage-review">
-                {reviews.slice(0, 3).map(review => (
-                    <ReviewCell review={review}></ReviewCell>
+                {reviews.slice(0, 3).map((review,index) => (
+                    <ReviewCell key={index} review={review}></ReviewCell>
                 ))}
                 
             </div>
@@ -67,4 +67,4 @@ const HomePage = () => {
     )
 }
 
-export default HomePage
+export default withRouter(HomePage)
