@@ -36,10 +36,6 @@ const BookCell = (props) => {
     )
   }
   return (
-<<<<<<< HEAD
-    <Link className="book-cell">
-      <View {...props} />
-=======
     <Link to="/" className="book-cell">
       <div className="wrap-book">
         <div className="image">
@@ -53,7 +49,6 @@ const BookCell = (props) => {
           </div>
         </div>
       </div>
->>>>>>> 299b7db2172a78edecdb6059e1d5def3d36ce061
     </Link>
 
   )
