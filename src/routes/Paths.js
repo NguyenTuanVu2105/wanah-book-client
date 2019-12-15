@@ -8,7 +8,7 @@ const Paths = {
     Notifications: "/notifications",
     Messages: "/messages",
     Users: "/users",
-    UserDetail: "/user/:id",
+    UserDetail: "/user/:id"
 }
 
 export default Paths

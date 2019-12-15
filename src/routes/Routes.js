@@ -10,7 +10,6 @@ import Messages from '../app/messages/Messages'
 import Users from '../app/users/Users'
 import Notifications from '../app/notifications/Notifications'
 import User from "../app/users/User"
-
 const routes = [
     {
         path: Paths.Login,
@@ -64,7 +63,7 @@ const routes = [
                 path: Paths.Messages,
                 exact: true,
                 component: Messages
-            },
+            }
         ]
     },
 ]
