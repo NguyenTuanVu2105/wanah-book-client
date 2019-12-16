@@ -14,9 +14,9 @@ const HomePage = () => {
 
     const [books, setBooks] = useState([])
     const _fetchData = async () => {
-        const {data, success} = await getBookByReview(5, 1)
-        if (success) {
-            setBooks(data)
+        const result = await getBookByReview(5, 1)
+        if (result.success) {
+            setBooks(result.data)
         }
     }
 
