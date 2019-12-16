@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './Books.css'
 import BookCell from './component/BookCell'
-import { getBookByReview } from '../../api/base/user'
+import { getBookByReview } from '../../api/base/book'
 import { parseImage } from '../../helper/parse/parser'
 
 const Books = () => {

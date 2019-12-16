@@ -4,6 +4,7 @@ import './AppHeader.scss'
 import { logout } from '../../../api/auth/auth';
 import AppContext from '../../../AppContext';
 import { parseImage } from '../../../helper/parse/parser';
+import Paths from '../../../routes/Paths';
 
 const { Header } = Layout
 const { Search } = Input;
@@ -16,13 +17,13 @@ const AppHeader = () => {
   const menu = (
     <Menu style={{zIndex: 1000000000}}>
       <Menu.Item key="0">
-        <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
+        <a href={Paths.Profile}>
           Xem hô sơ
             </a>
       </Menu.Item>
       <Menu.Item key="1">
-        <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
-          Cài đặt
+        <a href={Paths.UpdateProfile}>
+          Chỉnh sửa thông tin cá nhân
             </a>
       </Menu.Item>
       <Menu.Divider />

@@ -7,9 +7,10 @@ import { books } from '../books/data/Book'
 import BookCell from '../books/component/BookCell'
 import starRatings from 'react-star-ratings/build/star-ratings'
 import StarRatings from 'react-star-ratings'
+import AddReviewModal from './components/AddReviewModal'
 
 const { Search } = Input
-const { TextArea } = Input;
+const { TextArea } = Input
 
 export default class Review extends React.Component {
     constructor(props) {
@@ -70,7 +71,7 @@ export default class Review extends React.Component {
                     <div className="button-down"></div>
                     <Button className="create-review" onClick={this.showModal}>Tạo review</Button>
                 </div>
-                <Modal
+                {/* <Modal
                     title="Chọn sách review"
                     visible={this.state.visible}
                     onCancel={this.handleCancel}
@@ -131,7 +132,8 @@ export default class Review extends React.Component {
                                 
                             </div>
                     }
-                </Modal>
+                </Modal> */}
+                <AddReviewModal visible={this.state.visible} setVisible={(vis) => {this.setState({visible: vis})}}></AddReviewModal>
                 {
                     this.state.showToggle && (
                         <div className="show-filter">

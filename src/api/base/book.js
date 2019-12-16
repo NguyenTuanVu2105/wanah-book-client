@@ -6,3 +6,10 @@ export const getBookByReview = (limit, page) => {
         method: 'get',
     })
 }
+
+export const searchBook = (limit, q) => {
+    return createAuthApiRequest({
+        url: `/api/books/search?limit=${limit}&q=${q}`, 
+        method: 'get',
+    })
+}

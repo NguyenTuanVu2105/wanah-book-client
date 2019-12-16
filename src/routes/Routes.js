@@ -12,6 +12,9 @@ import Notifications from '../app/notifications/Notifications'
 import User from "../app/users/User"
 import BookDetail from "../app/books/BookDetail"
 import MapTest from "../app/register/components/MapConfirm"
+import Profile from "../app/profile/Profile"
+import ProfileUpdate from "../app/profile/ProfileUpdate"
+
 const routes = [
     {
         path: Paths.Login,
@@ -70,7 +73,17 @@ const routes = [
                 path: Paths.Messages,
                 exact: true,
                 component: Messages
-            }
+            },
+            {
+                path: Paths.Profile,
+                exact: true,
+                component: Profile
+            },
+            {
+                path: Paths.UpdateProfile,
+                exact: true,
+                component: ProfileUpdate
+            },
         ]
     },
 ]

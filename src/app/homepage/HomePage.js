@@ -6,7 +6,7 @@ import Paths from '../../routes/Paths'
 import BookCell from '../books/component/BookCell'
 import {reviews} from '../reviews/data/Review'
 import ReviewCell from '../reviews/components/ReviewCell'
-import { getBookByReview } from '../../api/base/user'
+import { getBookByReview } from '../../api/base/book'
 import AppContext from '../../AppContext'
 
 const HomePage = () => {
