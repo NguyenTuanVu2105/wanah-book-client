@@ -7,3 +7,10 @@ export const addReview = (data) => {
         data: data
     })
 }
+
+export const getReviewByBook = (bookId) => {
+    return createAuthApiRequest({
+        url: `/api/review/bybook?id=${bookId}`, 
+        method: 'get',
+    })
+}

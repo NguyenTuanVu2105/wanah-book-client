@@ -7,6 +7,7 @@
     display: flex;
     height: 250px;
     width: 100%;
+    margin-bottom: 40px;
 }
  
 .book-detail-image {
@@ -36,7 +37,7 @@
     margin:10px;
 }
 .book-detail-info {
-    margin:10px;
+    margin-top:30px;
 }
 .book-detail-info-tab {
     border: 1px solid #cccccc6e;

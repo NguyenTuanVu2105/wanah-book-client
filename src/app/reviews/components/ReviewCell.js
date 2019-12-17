@@ -29,7 +29,7 @@ const ReviewCell = (props) => {
                 
             </div>                           
         </div>
-        <img src={review.reviewBook} alt="" className="image-book-review"></img>
+        { !props.showBookImage && <img src={review.reviewBook} alt="" className="image-book-review"></img>}
          <VoteUpDown></VoteUpDown>      
     </div>   
     )

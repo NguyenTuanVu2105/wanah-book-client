@@ -15,8 +15,10 @@ const HomePage = () => {
     const [books, setBooks] = useState([])
     const _fetchData = async () => {
         const result = await getBookByReview(5, 1)
-        if (result.success) {
-            setBooks(result.data)
+        if (result) {
+            if (result.success) {
+                setBooks(result.data)
+            }
         }
     }
 
@@ -73,7 +75,7 @@ const HomePage = () => {
             </div>
             <div className="homepage-review">
                 {reviews.slice(0, 3).map((review,index) => (
-                    <ReviewCell key={index} review={review}></ReviewCell>
+                    <ReviewCell showImageBook={true} key={index} review={review}></ReviewCell>
                 ))}
                 
             </div>

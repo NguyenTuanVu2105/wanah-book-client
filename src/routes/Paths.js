@@ -11,7 +11,8 @@ const Paths = {
     UserDetail: "/user/:id",
     BookDetail: "/book/:id",
     Profile: "/profile",
-    UpdateProfile: "/profile/update"
+    UpdateProfile: "/profile/update",
+    Borrow: "/book/:id/borrow"
 }
 
 export default Paths

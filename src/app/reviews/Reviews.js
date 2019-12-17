@@ -71,68 +71,6 @@ export default class Review extends React.Component {
                     <div className="button-down"></div>
                     <Button className="create-review" onClick={this.showModal}>Tạo review</Button>
                 </div>
-                {/* <Modal
-                    title="Chọn sách review"
-                    visible={this.state.visible}
-                    onCancel={this.handleCancel}
-                    width="50%"
-                    style={this.state.selectBook ? {} : { top: 50 }}
-                    bodyStyle={{ padding: 0 }}
-                    footer={[
-                        <Button key="back" onClick={this.handleCancel}>
-                            Cancel
-                        </Button>
-                    ]}
-                >
-                    {
-                        !this.state.selectBook ?
-                            <div style={{ padding: 24, display: "flex", justifyContent: "center" }}>
-                                <Col span={24} offset={12} >
-                                    <Search
-                                        placeholder="input search text"
-                                        onSearch={this.onSearch}
-                                        onChange={(event) => this.onSearch(event.target.value)}
-                                        style={{ width: "50%" }}
-                                    />
-                                </Col>
-                            </div> :
-                            null
-                    }
-                    {
-                        !this.state.selectBook ?
-                            <div style={{ height: "calc(100vh - 300px)", overflow: "overlay", width: "100%", display: "flex", flexDirection: "row", flexWrap: "wrap", padding: 24, justifyContent: "center" }}>
-                                {
-                                    this.state.books.map((book, index) => (
-                                        <div style={{ width: 160, marginLeft: 10, marginRight: 10 }} onClick={this.onChoosenBook(book)}>
-                                            <BookCell
-                                                image={book.image}
-                                                name={book.name}
-                                                star={book.star}
-                                                author={book.author}
-                                            />
-                                        </div>
-                                    ))
-                                }
-                            </div> :
-                            <div style={{ width: "100%", display: "flex", justifyContent: "flex-start" }}>
-                                <BookCell
-                                    image={this.state.selectBook.image}
-                                    name={this.state.selectBook.name}
-                                    star={this.state.selectBook.star}
-                                    author={this.state.selectBook.author}
-                                />
-                                <div style={{display: "flex", flexDirection: "column", width: "70%"}}>
-                                    <div style={{ padding: 16, display: "flex", flexDirection: "row", alignItems: "center", height: "40%" }}>
-                                        <Avatar size={50} src="https://i.pinimg.com/originals/63/5f/15/635f15672215dc3dbeb16cef5e7ef6f1.jpg" />
-                                        <div style={{ paddingLeft: 5 }}>Hồng Hạnh</div>
-                                    </div>
-                                    <TextArea placeholder="Nhập bình luận của bạn..." rows={4} />
-                                    <StarRatings rating={4} starRatedColor="#ffdc34" numberOfStars={5} starDimension="14px" starSpacing="3px"/>
-                                </div>
-                                
-                            </div>
-                    }
-                </Modal> */}
                 <AddReviewModal visible={this.state.visible} setVisible={(vis) => {this.setState({visible: vis})}}></AddReviewModal>
                 {
                     this.state.showToggle && (
@@ -145,7 +83,7 @@ export default class Review extends React.Component {
                 }
                 {
                     reviews.map((review, index) => (
-                        <ReviewCell review={review}></ReviewCell>
+                        <ReviewCell review={review} showImageBook={true}></ReviewCell>
                     ))
                 }
             </div>

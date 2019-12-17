@@ -54,8 +54,7 @@ export const createAuthApiRequest = async ({ url, method, data, params, isFormDa
         }
     } catch (e) {
         const { response } = e
-        console.log(e)
-        const errorMessage = response ? response.statusText : e.message || e
+        const errorMessage = response ? response.data.message : e.message || e
         if (response.status && [401,403].includes(response.status)) {
             logout()
             window.location.href = Paths.Login
@@ -63,7 +62,7 @@ export const createAuthApiRequest = async ({ url, method, data, params, isFormDa
 
         return {
             success: false,
-            errorMessage,
+            message: errorMessage,
         }
     }
 }

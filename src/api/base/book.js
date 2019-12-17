@@ -13,3 +13,18 @@ export const searchBook = (limit, q) => {
         method: 'get',
     })
 }
+
+export const getBookDetail = (bookid) => {
+    return createAuthApiRequest({
+        url: `/api/book/info?bookId=${bookid}`,
+        method: 'get'
+    })
+}
+
+export const addBookUser = (bookid) => {
+    return createAuthApiRequest({
+        url: '/api/own/book/add',
+        method: 'post',
+        data: {id: bookid}
+    })
+}

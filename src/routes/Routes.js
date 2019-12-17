@@ -14,6 +14,7 @@ import BookDetail from "../app/books/BookDetail"
 import MapTest from "../app/register/components/MapConfirm"
 import Profile from "../app/profile/Profile"
 import ProfileUpdate from "../app/profile/ProfileUpdate"
+import Borrow from '../app/borrows/Borrow'
 
 const routes = [
     {
@@ -84,6 +85,11 @@ const routes = [
                 exact: true,
                 component: ProfileUpdate
             },
+            {
+                path: Paths.Borrow,
+                exact: true,
+                component: Borrow
+            }
         ]
     },
 ]
