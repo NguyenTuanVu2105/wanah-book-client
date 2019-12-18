@@ -1,14 +1,38 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './Users.css'
 import {userDatas} from './data/userDetail'
 import UserDetail from './UserDetail'
+import { Button, Icon } from 'antd'
+import { getUserNearest } from '../../api/base/user'
+import { Spin } from 'antd'
+import InfiniteScroll from 'react-infinite-scroll-component'
 
 const Users = () => {  
     const [showToggle, setShowToggle] = useState(false)
     const [sortBy, setSortBy] = useState("Mới nhất")
+
+    const [page, setPage] = useState(1)
+    const [hasMore, setHasMore] = useState(true)
+    const [users, setUsers] = useState([])
     const onToggle = () => {
         setShowToggle(!showToggle)
     }
+
+    const _fetchData = async (page) => {
+        const result = await getUserNearest(15, page)
+        console.log(result)
+        if (result.success) {
+            if (result.data.length > 0) {
+                setUsers(users.concat(result.data))
+            } else {
+                setHasMore(false)
+            }
+        }
+    }
+    
+    useEffect(() => {
+        _fetchData(1)
+    }, [])
 
     const onSetSortBy = (newSortBy) => {
         return () => {
@@ -16,6 +40,11 @@ const Users = () => {
             setShowToggle(!showToggle)
         }
     }
+
+    const btn = ( <div className="book-review">
+                <Button type="danger" className="button-book">Tủ sách <Icon type="read"/></Button>
+                <Button type="shipped" className="button-review-user">Reviews</Button>      
+            </div>)
     return(
         <div>
             <div className="title">
@@ -33,11 +62,22 @@ const Users = () => {
                     </div>
                 )
             }
+            <InfiniteScroll
+                    dataLength={users.length}
+                    next={() => {
+                        _fetchData(page+1)
+                        setPage(page+1)
+                    }}
+                    hasMore={hasMore}
+                    loader={<Spin style={{margin: 'auto 0', width: '100%'}} tip="Loading..."></Spin>}
+
+                    >
             {
-                userDatas.map(userdata => (
-                    <UserDetail userdata={userdata}></UserDetail>
+                users.map(userdata => (
+                    <UserDetail btn={btn} user={userdata}></UserDetail>
                 ))
-            }    
+            }   
+            </InfiniteScroll> 
         </div>   
     )
 }

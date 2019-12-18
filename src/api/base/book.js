@@ -7,9 +7,9 @@ export const getBookByReview = (limit, page) => {
     })
 }
 
-export const searchBook = (limit, q) => {
+export const searchBook = (q) => {
     return createAuthApiRequest({
-        url: `/api/books/search?limit=${limit}&q=${q}`, 
+        url: `/api/books/search?q=${q}`, 
         method: 'get',
     })
 }
@@ -28,3 +28,4 @@ export const addBookUser = (bookid) => {
         data: {id: bookid}
     })
 }
+
