@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './BookDetail.css'
 import StarRatings from 'react-star-ratings'
 import { FaBluetooth } from 'react-icons/fa' 
-import { useParams } from 'react-router-dom'
+import { useParams, withRouter } from 'react-router-dom'
 import { getBookDetail, addBookUser } from '../../api/base/book'
 import { parseImage } from '../../helper/parse/parser'
 import { Tabs, notification } from 'antd'
@@ -10,7 +10,7 @@ import { getReviewByBook } from '../../api/base/review'
 import ReviewCell from '../reviews/components/ReviewCell'
 const { TabPane } = Tabs
 
-const BookDetail = () => {
+const BookDetail = (props) => {
     let {id} = useParams();
     const [book, setBook] = useState(null)
     const [reviews, setReviews] = useState([])
@@ -22,9 +22,10 @@ const BookDetail = () => {
         setBook(result.data)
       }
       if (res.success) {
-        setReviews(res.data.reviews)
+        setReviews(res.data)
       }
     }
+
     const _addBookUser = async () => {
       const result = await addBookUser(id)
       console.log(result)
@@ -41,6 +42,10 @@ const BookDetail = () => {
         }
       }
     }
+    const handleBorrow = () => {
+      props.history.push(`/book/${id}/borrow`)
+    }
+
     useEffect(() => {
       _fetchData()
     }, [])
@@ -68,13 +73,12 @@ const BookDetail = () => {
                 {book.publisher}
               </div>
               <div className="flex-start">
-              <StarRatings rating={5} starRatedColor="#ffdc34" numberOfStars={5} starDimension="16px" starSpacing="5px"></StarRatings>
-              <b style={{margin:'10px'}}> 5.0 </b>
-              <a href="/" style={{color:'blue'}}>(Xem 100 bài review)</a>
+              <StarRatings rating={book.star} starRatedColor="#ffdc34" numberOfStars={5} starDimension="16px" starSpacing="5px"></StarRatings>
+              <b style={{margin:'10px'}}> {Math.round(book.star * 10)/10} </b>
               </div>
               <div>
                <button style={{background:'#0000ff94', color:'white'}} onClick={_addBookUser}>Thêm vào tủ sách</button>
-               <button style={{background: '#19b187', color:'white'}}>Mượn sách</button>
+               <button style={{background: '#19b187', color:'white'}} onClick={handleBorrow}>Mượn sách</button>
             </div>
             </div>
           </div>
@@ -88,13 +92,13 @@ const BookDetail = () => {
             </div>
          )
        }
-          {/* <strong>Review</strong>
+          <strong style={{display: 'block', marginBottom: '30px'}}>Review</strong>
             {
               reviews.map(review => <ReviewCell review={review} showBookImage={false}></ReviewCell>)
-            } */}
+            }
          </div> 
     
     )
 }
 
-export default BookDetail
+export default withRouter(BookDetail)

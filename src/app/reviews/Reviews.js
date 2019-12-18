@@ -1,16 +1,11 @@
 import React from 'react'
-import { Button, Modal, Input, Row, Col, Avatar } from 'antd'
+import { Button, Spin } from 'antd'
 import './Reviews.scss'
 import ReviewCell from './components/ReviewCell'
-import { reviews } from './data/Review'
-import { books } from '../books/data/Book'
-import BookCell from '../books/component/BookCell'
-import starRatings from 'react-star-ratings/build/star-ratings'
-import StarRatings from 'react-star-ratings'
 import AddReviewModal from './components/AddReviewModal'
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { getLatestReview } from '../../api/base/review'
 
-const { Search } = Input
-const { TextArea } = Input
 
 export default class Review extends React.Component {
     constructor(props) {
@@ -19,10 +14,52 @@ export default class Review extends React.Component {
             showToggle: false,
             sortBy: "Mới nhất",
             visible: false,
-            books: JSON.parse(JSON.stringify(books)),
-            selectBook: null,
+            reviews: [],
+            page: 1, 
+            hasMore: true
+        }
+    }    
+
+    resetData = () => {
+        this.fetchData(1, false)
+        this.setState({
+            page: 1,
+            hasMore: true
+        })
+    }
+
+    fetchData = async(page, append=true) => {
+        const result = await getLatestReview(10, page)
+        if (result.success) {
+            if (result.data.length > 0) {
+                if (append) {
+                    this.setState({
+                        reviews: this.state.reviews.concat(result.data)
+                    })
+                }
+                else {
+                    this.setState({
+                        reviews: result.data
+                    })
+                }
+            }
+            else {
+                this.setState({
+                    hasMore: false
+                })
+            }
         }
     }
+
+    componentDidMount() {
+        this.fetchData(this.state.page)
+    }
+    showModal = () => {
+        this.setState({
+            visible: true,
+        });
+    };
+
 
     onToggle = () => this.setState({ showToggle: !this.state.showToggle })
 
@@ -36,32 +73,6 @@ export default class Review extends React.Component {
         });
     };
 
-    handleOk = e => {
-        console.log(e);
-        this.setState({
-            visible: false,
-        });
-    };
-
-    handleCancel = e => {
-        this.setState({
-            visible: false,
-            selectBook: null,
-            books: JSON.parse(JSON.stringify(books)),
-        });
-    };
-
-    onChoosenBook = selectBook => () => {
-        this.setState({
-            selectBook
-        })
-    }
-
-    onSearch = (value) => {
-        const filterBooks = books.filter(book => book.name.toLowerCase().includes(value.toLowerCase()));
-        this.setState({ books: filterBooks })
-    }
-
     render() {
         return (
             <div>
@@ -71,7 +82,7 @@ export default class Review extends React.Component {
                     <div className="button-down"></div>
                     <Button className="create-review" onClick={this.showModal}>Tạo review</Button>
                 </div>
-                <AddReviewModal visible={this.state.visible} setVisible={(vis) => {this.setState({visible: vis})}}></AddReviewModal>
+                <AddReviewModal visible={this.state.visible} resetData={this.resetData} setVisible={(vis) => {this.setState({visible: vis})}}></AddReviewModal>
                 {
                     this.state.showToggle && (
                         <div className="show-filter">
@@ -81,11 +92,23 @@ export default class Review extends React.Component {
                         </div>
                     )
                 }
+                <InfiniteScroll
+                    dataLength={this.state.reviews.length}
+                    next={() => {
+                        this.fetchData(this.state.page+1)
+                        this.setState({
+                            page: this.state.page+1
+                        })        
+                    }}
+                    hasMore={this.state.hasMore}
+                    loader={<Spin style={{margin: 'auto 0', width: '100%'}} tip="Loading..."></Spin>}
+                    >
                 {
-                    reviews.map((review, index) => (
-                        <ReviewCell review={review} showImageBook={true}></ReviewCell>
+                    this.state.reviews.map((review, index) => (
+                        <ReviewCell key={index} review={review} showImageBook={true}></ReviewCell>
                     ))
                 }
+                </InfiniteScroll>
             </div>
         )
     }

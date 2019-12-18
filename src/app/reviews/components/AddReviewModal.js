@@ -7,7 +7,7 @@ import { addReview } from '../../../api/base/review';
 
 const {Option} = Select;
 const AddReviewModalWapper = (props) => {
-    const {visible, setVisible} = props
+    const {visible, setVisible, resetData} = props
     const [books, setBooks] = useState([])
     const handleCancel = () => {
         props.form.resetFields()
@@ -18,6 +18,7 @@ const AddReviewModalWapper = (props) => {
       const result = await addReview(values)
       if (result.success) {
         props.form.resetFields()
+        resetData()
         setVisible(false)
         notification['success']({
           message: 'Tạo review thành công',
@@ -42,7 +43,7 @@ const AddReviewModalWapper = (props) => {
     // }
 
     const _fetchData = async (searchValue) => {
-      let result = await searchBook(7, searchValue)
+      let result = await searchBook(searchValue)
       if (result.success) {
         setBooks(books => result.data)
       }

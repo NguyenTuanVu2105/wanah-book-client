@@ -4,15 +4,16 @@ import {Card} from 'antd'
 import {Link, withRouter} from 'react-router-dom'
 import Paths from '../../routes/Paths'
 import BookCell from '../books/component/BookCell'
-import {reviews} from '../reviews/data/Review'
 import ReviewCell from '../reviews/components/ReviewCell'
 import { getBookByReview } from '../../api/base/book'
 import AppContext from '../../AppContext'
+import { getLatestReview } from '../../api/base/review'
 
 const HomePage = () => {
     const context = useContext(AppContext)
 
     const [books, setBooks] = useState([])
+    const [reviews, setReviews] = useState([])
     const _fetchData = async () => {
         const result = await getBookByReview(5, 1)
         if (result) {
@@ -21,9 +22,17 @@ const HomePage = () => {
             }
         }
     }
-
+    const _getReviews = async () => {
+        const result = await getLatestReview(5, 1)
+        if (result) {
+            if (result.success) {
+                setReviews(result.data)
+            }
+        }
+    }
     useEffect(() => {
         _fetchData()
+        _getReviews()
     }, [])
     return (
         <div className="homepage"> 
@@ -74,7 +83,7 @@ const HomePage = () => {
                 <Link className="show-more" to="/reviews">Xem thêm&nbsp;></Link>
             </div>
             <div className="homepage-review">
-                {reviews.slice(0, 3).map((review,index) => (
+                {reviews.map((review,index) => (
                     <ReviewCell showImageBook={true} key={index} review={review}></ReviewCell>
                 ))}
                 
