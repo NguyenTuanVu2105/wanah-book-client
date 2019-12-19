@@ -4,8 +4,7 @@ import {COOKIE_KEY} from '../storage/sessionStorage'
 import { getUserProfile } from '../base/profile';
 
 export const logout = () => {
-    console.log('logout')
-    removeCookie(COOKIE_KEY.TOKEN);
+    removeCookie(COOKIE_KEY.TOKEN)
     window.location.href = Paths.Login
 }
 

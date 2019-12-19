@@ -9,9 +9,8 @@ const Paths = {
     Messages: "/messages",
     Users: "/users",
     UserDetail: "/user/:id/:action",
-    BookDetail: "/book/:id",
     Profile: "/profile",
-    UpdateProfile: "/profile/update",
+    UpdateProfile: "/updateprofile",
     Borrow: "/book/:id/borrow"
 }
 

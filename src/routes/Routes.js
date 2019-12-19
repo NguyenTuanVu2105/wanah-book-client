@@ -15,6 +15,7 @@ import MapTest from "../app/register/components/MapConfirm"
 import Profile from "../app/profile/Profile"
 import ProfileUpdate from "../app/profile/ProfileUpdate"
 import Borrow from '../app/borrows/Borrow'
+import Test from "../app/profile/Test"
 
 const routes = [
     {
