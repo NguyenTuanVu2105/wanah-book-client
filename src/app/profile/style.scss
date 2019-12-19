@@ -1,0 +1,47 @@
+.update_profile {
+  .avatar {
+    margin-bottom: 20px;
+  }
+  .avatar_profile {
+    position: relative;
+    border-radius: 100%;
+  }
+  .change_avatar {
+    position: absolute;
+    width: 125px;
+    height: 62.5px;
+    background-color: rgba($color: black, $alpha: 0.7);
+    bottom: 0;
+    border-bottom-left-radius: 62.5px;
+    border-bottom-right-radius: 62.5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    transition: all 300ms;
+    cursor: pointer;
+  }
+  .icon_change_avatar {
+    color: white;
+    font-size: 18px;
+  }
+  .ant-upload {
+    display: flex !important;
+    flex-direction: column;
+  }
+  .form_inline {
+    display: flex;
+    justify-content: stretch;
+  }
+  .select_box {
+    width: 100%;
+    .ant-form-item-control-wrapper {
+      width: 100%;
+    }
+    .ant-form-item {
+      width: 100%;
+    }
+  }
+  .form_update {
+    width: 75%;
+  }
+}
