@@ -6,3 +6,11 @@ export const getUserProfile = () => {
       method: 'get'
   })
 }
+
+export const updateUserProfile = (data) => {
+  return createAuthApiRequest({
+    url: "/api/auth/editprofile",
+    method: "put",
+    data,
+  })
+}
