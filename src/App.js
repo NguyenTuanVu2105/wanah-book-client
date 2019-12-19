@@ -36,11 +36,12 @@ const App = (props) => {
       useEffect(() => {
           _fetchData()
       }, [])
-      console.log(user)
+
     return (
         <AppContext.Provider value = {{
             user, 
-            setUser
+            setUser,
+            _fetchData
         }}>
             <Layout>
                 <AppHeader />

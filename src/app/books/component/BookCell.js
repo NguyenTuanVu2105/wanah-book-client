@@ -2,13 +2,14 @@ import React from 'react'
 import './BookCell.css'
 import StarRatings from 'react-star-ratings'
 import { Link } from 'react-router-dom'
+import { parseImage } from '../../../helper/parse/parser'
 
 const BookCell = (props) => {
   return (
     <Link to={`/book/${props.id}`} className="book-cell">
       <div className="wrap-book">
         <div className="image">
-          <img src={props.image} alt={props.name} className="image-book"></img>
+          <img src={parseImage(props.image)} alt={props.name} className="image-book"></img>
         </div>
         <div className="content-book">
           <label className="book-name">{props.name}</label>

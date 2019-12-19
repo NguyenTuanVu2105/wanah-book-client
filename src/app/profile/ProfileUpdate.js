@@ -5,6 +5,9 @@ import './style.scss'
 import { getUserProfile, updateUserProfile } from '../../api/base/profile'
 import { uploadFile } from '../../api'
 import { getEnv } from '../../helper/env/getEnv'
+import { withRouter } from 'react-router-dom'
+import AppContext from '../../AppContext'
+
 
 const formLayout = {
     labelCol: { span: 4 },
@@ -29,10 +32,14 @@ class ProfileUpdate extends React.Component {
         }
     }
 
-    async componentDidMount() {
+    fetchData = async () => {
         const profile = await getUserProfile();
         profile.data.avatar = BASE_URL + "/" + profile.data.avatar
         this.setState({ profile: profile.data })
+    }
+
+    componentDidMount() {
+        this.fetchData()
     }
 
     onChooseFile = ({ data, filename, file }) => {
@@ -86,8 +93,9 @@ class ProfileUpdate extends React.Component {
             const [updateRes, uploadRes] = await Promise.all(fns)
             if (updateRes.success && (!uploadRes || (uploadRes && uploadRes.success))) {
                 notification.success({
-                    message: "Thành công!"
+                    message: "Cập nhật thành công!"
                 })
+                this.context._fetchData()
             }
             if (!updateRes.success || (uploadRes && !uploadRes.success)) {
                 notification.error({
@@ -153,4 +161,6 @@ class ProfileUpdate extends React.Component {
     }
 }
 
-export default ProfileUpdate
+ProfileUpdate.contextType = AppContext;
+
+export default withRouter(ProfileUpdate)

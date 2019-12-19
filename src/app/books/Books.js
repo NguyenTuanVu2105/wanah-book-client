@@ -43,7 +43,7 @@ const Books = () => {
                             <BookCell
                                 key={index} 
                                 id = {book.id}
-                                image={parseImage(book.image)} 
+                                image={book.image} 
                                 name={book.name} 
                                 star={book.star}
                                 author={book.authors.map(x => x.name).join(', ')} 

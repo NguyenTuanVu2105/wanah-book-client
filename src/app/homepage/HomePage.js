@@ -74,7 +74,7 @@ const HomePage = () => {
             <div className="homepage-book">
                 {
                     books.map((book, index) => (
-                            <BookCell key={index} id={book.id} image={book.image} name={book.name} star={book.star} author={book.authors.map(x => x.name).join(', ')}></BookCell>                        
+                            <BookCell key={index} id={book.id} image={book.image} name={book.name} star={book.star} reviewCount={book.ReviewCount} author={book.authors.map(x => x.name).join(', ')}></BookCell>                        
                     ))
                 }     
             </div>

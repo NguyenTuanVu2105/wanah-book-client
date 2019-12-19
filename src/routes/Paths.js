@@ -8,7 +8,7 @@ const Paths = {
     Notifications: "/notifications",
     Messages: "/messages",
     Users: "/users",
-    UserDetail: "/user/:id",
+    UserDetail: "/user/:id/:action",
     BookDetail: "/book/:id",
     Profile: "/profile",
     UpdateProfile: "/profile/update",

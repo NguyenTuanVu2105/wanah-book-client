@@ -6,8 +6,9 @@ import { Button, Icon } from 'antd'
 import { getUserNearest } from '../../api/base/user'
 import { Spin } from 'antd'
 import InfiniteScroll from 'react-infinite-scroll-component'
+import { withRouter } from 'react-router-dom'
 
-const Users = () => {  
+const Users = (props) => {  
     const [showToggle, setShowToggle] = useState(false)
     const [sortBy, setSortBy] = useState("Mới nhất")
 
@@ -41,10 +42,10 @@ const Users = () => {
         }
     }
 
-    const btn = ( <div className="book-review">
-                <Button type="danger" className="button-book">Tủ sách <Icon type="read"/></Button>
-                <Button type="shipped" className="button-review-user">Reviews</Button>      
-            </div>)
+    const handleClick = (id, action) => {
+        props.history.push(`/user/${id}/${action}`)
+    }
+
     return(
         <div>
             <div className="title">
@@ -74,7 +75,14 @@ const Users = () => {
                     >
             {
                 users.map(userdata => (
-                    <UserDetail btn={btn} user={userdata}></UserDetail>
+                    <UserDetail 
+                    btn={( 
+                        <div className="book-review">
+                            <Button type="danger" className="button-book" onClick={() => handleClick(userdata.id, 1)}>Tủ sách <Icon type="read"/></Button>
+                            <Button type="shipped" className="button-review-user" onClick={() => handleClick(userdata.id, 2)}>Reviews</Button>      
+                        </div>
+                    )} 
+                    user={userdata}></UserDetail>
                 ))
             }   
             </InfiniteScroll> 
@@ -82,4 +90,4 @@ const Users = () => {
     )
 }
 
-export default Users
+export default withRouter(Users)

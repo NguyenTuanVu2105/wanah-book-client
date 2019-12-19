@@ -1,6 +1,5 @@
 import React from 'react';
 import './UserDetail.scss'
-import StarRatings from 'react-star-ratings'
 import { parseImage, parseDistance } from '../../helper/parse/parser';
 
 
