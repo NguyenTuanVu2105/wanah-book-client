@@ -1,7 +1,7 @@
 import React from 'react'
-import './Notifications.css'
 import { Card, Avatar, Button } from 'antd';
 import {users} from './data/User'
+import '../notifications/Notifications.css'
 
 const { Meta } = Card;
 
@@ -14,8 +14,12 @@ const Notifications = () => {
                     const description = (
                         <div>
                             <p>{message}</p>
-                            <Button style={{background: 'blue', color:'white', marginRight:'10px'}}>Chấp nhận</Button>
-                            <Button style={{background: 'red', color:'white'}}>Từ chối</Button>
+                            {/* <Button style={{background: '#6decb9', color:'white', marginRight:'10px'}}>Chấp nhận</Button>
+                            <Button style={{background: '#fa877f', color:'white'}}>Từ chối</Button> */}
+                            <div style={{display: 'flex', flexDirection: 'row'}}>
+                                <div className="accept" >Chấp nhận</div>
+                                <div className="refuse">Từ chối</div>
+                            </div>    
                         </div>
                     )
                     return (
