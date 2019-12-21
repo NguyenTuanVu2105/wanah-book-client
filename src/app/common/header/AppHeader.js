@@ -37,7 +37,7 @@ const AppHeader = () => {
     <Header style={{ position: 'fixed', zIndex: 1, width: '100%', background: "#8900d4" }}>
       <Row className="header" justify="space-between" align="middle" type="flex">
         <Col>
-          <img src={parseImage("asset/logo.png")} alt="" style={{ height: 64 }}></img>
+          <img src={parseImage("logo.png")} alt="" style={{ height: 64 }}></img>
         </Col>
         <Col xs={8} className="flex-center">
           <Select id="search-select" defaultValue="book" showArrow={false} getPopupContainer={() => document.getElementById("search-select")}>

@@ -2,13 +2,14 @@
     .book-case-image {
         // padding: 10px;
         height: 150px;
-        margin: 0 auto;
+        width: 15%;
         img {
             max-width: 100%;
             max-height: 100%;
         }
     }
     .book-case-content {
+        width: 65%;
         .book-case-name {
             font-size: 20px;
             color: 20px;

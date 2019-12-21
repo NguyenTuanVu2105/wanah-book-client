@@ -5,13 +5,14 @@ const Paths = {
     Books: "/books",
     BookDetail: "/book/:id",
     Reviews: "/reviews",
-    Notifications: "/notifications",
+    Notifications: "/requests",
     Messages: "/messages",
     Users: "/users",
     UserDetail: "/user/:id/:action",
     Profile: "/profile",
     UpdateProfile: "/updateprofile",
-    Borrow: "/book/:id/borrow"
+    Borrow: "/book/:id/borrow",
+    Request: "/request/:id"
 }
 
 export default Paths

@@ -28,7 +28,7 @@ const nav = [
         icon: "user"
     },
     {
-        name: "Thông báo",
+        name: "Yêu cầu",
         path: Paths.Notifications,
         icon: "bell"
     },

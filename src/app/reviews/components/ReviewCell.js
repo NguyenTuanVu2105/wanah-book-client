@@ -7,7 +7,6 @@ import { parseImage } from '../../../helper/parse/parser'
 
 const ReviewCell = (props) => {
     const {review} = props
-    console.log(review)
     return (
         <div>
             {

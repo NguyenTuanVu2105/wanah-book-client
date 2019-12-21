@@ -2,10 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import L from "leaflet";
 import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet'
 import axios from 'axios'
-// import 'esri-leaflet-geocoder'
-// import 'esri-leaflet'
-// import LCG from 'leaflet-control-geocoder';
-import 'leaflet-geocoder-mapzen';
+import { AutoComplete } from 'antd';
 
 const MapConfirm = (props) => {
   const key = 'P4QzOCt4wWfPKfuPuMF1UQSupLKLsO7ZC4DBRF6GAoC0AcaSAKRvD4v2vix948q7'
@@ -13,28 +10,18 @@ const MapConfirm = (props) => {
   const mapRef = useRef(null)
   const [hasLocation, setHasLocation] = useState(false)
   const {address, setAddress, position , setPosition} = props
-
+  const [data, setData] = useState([])
   const handleClick = (e) => {
     setPosition(e.latlng)
   }
 
   useEffect(()=> {
     const map = mapRef.current.leafletElement
-    var options = {
-      url: "https://places.jawg.io/v1",
-      layers: ["street", "address", "venue"],
-  }
-    const gencoder = L.control.geocoder(key, options);
-    gencoder.addTo(map)
-    gencoder.on('select', function({latlng, feature}) {
-      setPosition(latlng)
-      console.log(feature)
-    })
     if (map != null) {
       map.locate()
     }
   }, [])
-  console.log(position)
+
   useEffect(() => {
     if (position) {
       axios.get(`https://api.jawg.io/places/v1/reverse?access-token=${key}&point.lat=${position.lat}&point.lon=${position.lng}&size=1&boundary.circle.radius=${10}&layers=address`)
@@ -49,14 +36,24 @@ const MapConfirm = (props) => {
     setPosition(e.latlng)
   }
 
-  const marker = hasLocation ? (
-    <Marker position={position}>
-      <Popup>{address}</Popup>
-    </Marker>
-  ) : null
+  const onSelect = () => {
+    
+  }
+
+  const onSearch = () => {
+    setData(['asd','da','a'])
+  }
+
 
   return (
     <div>
+        <AutoComplete
+          dataSource={data}
+          style={{ width: 800 }}
+          onSelect={onSelect}
+          onSearch={onSearch}
+          placeholder="Nhập địa chỉ của bạn tại đây"
+        />
           <LeafletMap 
       center={position} 
       zoom={15}

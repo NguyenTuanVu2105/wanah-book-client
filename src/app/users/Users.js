@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import './Users.css'
 import {userDatas} from './data/userDetail'
 import UserDetail from './UserDetail'
-import { Button, Icon } from 'antd'
+import { Button, Icon, Empty} from 'antd'
 import { getUserNearest } from '../../api/base/user'
 import { Spin } from 'antd'
 import InfiniteScroll from 'react-infinite-scroll-component'
@@ -21,7 +21,6 @@ const Users = (props) => {
 
     const _fetchData = async (page) => {
         const result = await getUserNearest(15, page)
-        console.log(result)
         if (result.success) {
             if (result.data.length > 0) {
                 setUsers(users.concat(result.data))
@@ -74,16 +73,18 @@ const Users = (props) => {
 
                     >
             {
+                users.length > 0 ?
                 users.map(userdata => (
                     <UserDetail 
                     btn={( 
                         <div className="book-review">
-                            <Button type="danger" className="button-book" onClick={() => handleClick(userdata.id, 1)}>Tủ sách <Icon type="read"/></Button>
+                    <Button type="danger" className="button-book" onClick={() => handleClick(userdata.id, 1)}>Tủ sách <Icon type="read"/> {userdata.BookCount}</Button>
                             <Button type="shipped" className="button-review-user" onClick={() => handleClick(userdata.id, 2)}>Reviews</Button>      
                         </div>
                     )} 
                     user={userdata}></UserDetail>
-                ))
+                )) : 
+                <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
             }   
             </InfiniteScroll> 
         </div>   

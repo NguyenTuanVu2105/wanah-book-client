@@ -105,7 +105,7 @@ export default class Review extends React.Component {
                     >
                 {
                     this.state.reviews.map((review, index) => (
-                        <ReviewCell key={index} review={review} showImageBook={true}></ReviewCell>
+                        <ReviewCell key={index} review={review} showBookImage={false}></ReviewCell>
                     ))
                 }
                 </InfiniteScroll>

@@ -96,3 +96,10 @@ code {
 .ant-form-explain {
   color: red;
 }
+
+.hover-bolder {
+  cursor: pointer;
+  &:hover { 
+    font-weight: bolder;
+  }
+}
