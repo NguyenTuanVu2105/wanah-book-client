@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react'
 import './Notifications.css'
-import { Card, Avatar, Button, Steps, Divider, PageHeader } from 'antd'
+import { Card, Avatar, Button, Steps, Divider, PageHeader, Icon } from 'antd'
 import { useState } from 'react'
 import { parseImage } from '../../helper/parse/parser'
 import { withRouter, useParams } from 'react-router-dom'
