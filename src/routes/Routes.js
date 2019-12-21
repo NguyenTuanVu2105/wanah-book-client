@@ -15,6 +15,8 @@ import MapTest from "../app/register/components/MapConfirm"
 import Profile from "../app/profile/Profile"
 import ProfileUpdate from "../app/profile/ProfileUpdate"
 import Borrow from '../app/borrows/Borrow'
+import Request from "../app/notifications/Request"
+import Error404 from "../Error404"
 
 const routes = [
     {
@@ -89,6 +91,16 @@ const routes = [
                 path: Paths.Borrow,
                 exact: true,
                 component: Borrow
+            }, 
+            {
+                path: Paths.Request,
+                exact: true,
+                component: Request
+            }, 
+            {
+                path: '*',
+                exact: true,
+                component: Error404
             }
         ]
     },

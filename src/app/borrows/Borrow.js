@@ -3,13 +3,14 @@ import { useParams } from 'react-router-dom'
 import { getUserByBook } from '../../api/base/user';
 import UserDetail from '../users/UserDetail';
 import { getBookDetail } from '../../api/base/book';
-import { Button } from 'antd';
+import { Button, Modal, InputNumber, notification, Empty } from 'antd';
+import { addBorrowRequests } from '../../api/base/request';
+import '../borrows/Borrow.css'
 
 const Borrow = () => {
     let {id} = useParams();
     const [users, setUsers] = useState([])
     const [book, setBook] = useState(null)
-    const [reviews, setReviews] = useState([])
     const _fetchData = async () => {
         const result = await getUserByBook(id)
         if (result.success) {
@@ -23,6 +24,25 @@ const Borrow = () => {
             setBook(result.data)
         }
     }  
+
+    const handleBorrow = async (id) => {
+        const value = document.getElementById(`week-${id}`).value
+        const result = await addBorrowRequests(id, value)
+        if (result.success) {
+            if (result.data.message) {
+                notification['error']({
+                    message: 'Mượn sách thất bại', 
+                    description: result.data.message
+                })
+            } else {
+                notification['success']({
+                    message: 'Mượn sách thành công', 
+                    description: 'Yêu cầu mượn sách của bạn đã được gửi đi. Đang chờ chủ sách chấp nhận'
+                })
+            }
+        }
+    }
+
     useEffect(() => {
       _fetchData()
       _getBook()
@@ -30,17 +50,32 @@ const Borrow = () => {
 
     return (
         <div style={{paddingTop:'15px'}}>
-            <h5 style={{padding:'20px 0'}}>Chủ sách <a href={`/book/${id}`} style={{color: 'blue'}}>{book ? book.name : null}</a></h5>
+            <h5 className="search-book-title">Người dùng có sách <b><i><a href={`/book/${id}`} style={{color: '#970690'}}>{book ? book.name : null}</a></i></b></h5>
             {
+                users.length > 0 ?
                 users.map(user => (
-                    <UserDetail 
-                    user={user}
-                    btn={(
-                        <Button>Mượn sách</Button>
-                    )} 
-                    ></UserDetail>
-                ))  
-            }
+                    <div>
+                        <UserDetail 
+                            user={user}
+                            btn={
+                                <div>
+                                    <div className="borrow-time">
+                                        <InputNumber id={`week-${user.book_users.id}`} min={1} max={10} defaultValue={1} style={{width: '65px'}}/>
+                                            <div style={{margin: '5px'}}>tuần</div>
+                                        </div>
+                                    {
+                                        user.book_users.status === 'Đợi Mượn' ?
+                                        (<Button onClick={() => handleBorrow(user.book_users.id)} className="button-borrow">Mượn sách</Button>) : 
+                                        (<Button disabled>Đợi mượn</Button>)
+                                    }
+                                </div>
+                            } 
+                        ></UserDetail>
+                    </div>
+
+                )) :
+                <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} ></Empty>
+            } 
         </div>    
     )
 }

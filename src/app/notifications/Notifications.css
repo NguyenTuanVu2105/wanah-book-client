@@ -1,3 +1,45 @@
 .notification-raw{
     margin-top: 10px;
 }
+
+/* .ant-btn:hover, .ant-btn:focus {
+    border-color: none !important;
+} */
+
+.accept {
+    border: 1px solid #d0d0d0;
+    background-color: #6decb9;
+    color: #fff;
+    width: 100px;
+    height: 34px;    
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+    .accept:hover{
+        cursor: pointer;
+        background-color: #4dd599;
+    }
+
+.refuse {
+    border: 1px solid #d0d0d0;
+    background-color: #fa877f;
+    color: #fff;
+    width: 100px;
+    height: 34px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .refuse:hover{
+        cursor: pointer;
+        background-color:  #ea5e5e;
+    }
+
+    .notification-content {
+        color: #aa26da;
+    }

@@ -11,7 +11,7 @@ const LoginFormWrapper = (props) => {
   const [messages, setMessages] = useState('')
   const handleLogin = (data) => {
       if (data.Success) {
-        setUserCookies(data.accessToken, data.id, data.name, data.avatar)
+        setUserCookies(data.accessToken)
       }
   }
   const submitLogin = async (values) => {

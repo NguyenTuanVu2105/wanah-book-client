@@ -16,22 +16,19 @@ const AppHeader = () => {
 
   const menu = (
     <Menu style={{zIndex: 1000000000}}>
-      <Menu.Item key="0">
+      <Menu.Item key="1">
         <a href={Paths.Profile}>
           Xem hô sơ
             </a>
       </Menu.Item>
-      <Menu.Item key="1">
+      <Menu.Item key="2">
         <a href={Paths.UpdateProfile}>
           Chỉnh sửa thông tin cá nhân
             </a>
       </Menu.Item>
       <Menu.Divider />
       <Menu.Item key="3">
-        Đổi mật khẩu
-          </Menu.Item>
-      <Menu.Item key="4">
-        <div onClick={logout}>Đăng xuất</div>
+        <div onClick={() => {logout()}}>Đăng xuất</div>
           </Menu.Item>
     </Menu>
   );
@@ -40,7 +37,7 @@ const AppHeader = () => {
     <Header style={{ position: 'fixed', zIndex: 1, width: '100%', background: "#8900d4" }}>
       <Row className="header" justify="space-between" align="middle" type="flex">
         <Col>
-          <img src={parseImage("asset/logo.png")} alt="" style={{ height: 64 }}></img>
+          <img src={parseImage("logo.png")} alt="" style={{ height: 64 }}></img>
         </Col>
         <Col xs={8} className="flex-center">
           <Select id="search-select" defaultValue="book" showArrow={false} getPopupContainer={() => document.getElementById("search-select")}>

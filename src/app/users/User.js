@@ -1,36 +1,43 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './User.scss'
 import {Tabs, Button} from 'antd'
-import {useParams} from 'react-router-dom'
-import {users} from './data/user'
-import {books} from '../books/data/Book'
-import BookCase from './components/BookCase'
+import {useParams} from 'react-router-dom'  
 import Reviews from './components/Reviews'
 import UserHeader from './UserHeader'
-import {parseStringToList} from '../../helper/parse/parseString'
+import { getUserDetail } from '../../api/base/user'
+import BookCase from './components/BookCase'
 const { TabPane } = Tabs
 
+
 const User = () => {
-    let {id} = useParams();
-    let user = users.find(user => user.id === parseInt(id))
-     let bookIds = parseStringToList(user.books)
-    //  let bookIds = [1, 2, 3]
-    let _books = bookIds.map(id => books.find(book => book.id === id))
+    let {id, action} = useParams();
+    const [user, setUser] = useState(null)
+    const fetchData = async () => {
+        const result = await getUserDetail(id)
+        if (result.success) {
+            setUser(result.data)
+        }
+    }
+
+    useEffect(() => {
+        fetchData()
+    }, [])
 
     const buttons = (
         <div className="user-btn-group">
             <Button type="primary" size="large" style={{width: "200px"}}>Nhắn tin</Button>
         </div>
     )
+    
     return (
         <div className="user">
-            <UserHeader user={user} grbtn={buttons}></UserHeader>
-            <Tabs defaultActiveKey="1">
-                <TabPane tab="Tủ sách" key="1">
-                    <BookCase books={_books}></BookCase>
+            <UserHeader user={user ? user.profile : null} grbtn={buttons}></UserHeader>
+            <Tabs defaultActiveKey={action}>
+                <TabPane tab={`Tủ sách (${user ? user.books.length: 0})`} key="1">
+                    <BookCase books={user ? user.books: []} isBtn={true}></BookCase>    
                 </TabPane>
-                <TabPane tab="Reviews" key="2">
-                    <Reviews></Reviews>
+                <TabPane tab={`Reviews (${user ? user.reviews.length: 0})`} key="2">
+                    <Reviews reviews={user ? user.reviews: []}></Reviews>
                 </TabPane>
             </Tabs>
         </div>

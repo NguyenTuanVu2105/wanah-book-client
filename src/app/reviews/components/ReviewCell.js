@@ -7,7 +7,6 @@ import { parseImage } from '../../../helper/parse/parser'
 
 const ReviewCell = (props) => {
     const {review} = props
-    console.log(review)
     return (
         <div>
             {
@@ -33,7 +32,7 @@ const ReviewCell = (props) => {
                         
                     </div>                           
                 </div>
-                { !props.showBookImage && <img src={review.book ? review.book.image: ''} alt="" className="image-book-review"></img>}
+                { !props.showBookImage && <img src={review.book ?parseImage(review.book.image): ''} alt="" className="image-book-review"></img>}
                  <VoteUpDown currentScore={review.VoteCount} id={review.id} voted={review.voted}></VoteUpDown>      
             </div> 
             }
