@@ -53,7 +53,7 @@ const Request = (props) => {
                             title={request.user.profile.first_name + " " + request.user.profile.last_name}
                             description={request.user.profile.address_detail}
                             />
-                            <a style={{margin: '15px 0 0 40px', display:'block'}} href='/'>Nhắn tin với {request.user.profile.first_name + " " + request.user.profile.last_name}</a>
+                            <a style={{margin: '15px 0 0 40px', display:'block'}} href='/'><Icon type="message" theme="filled" /> Nhắn tin với {request.user.profile.first_name + " " + request.user.profile.last_name}</a>
                         </Card>
                         <div>Gửi yêu cầu mượn sách đến bạn</div>
                     </div> ) : 
@@ -80,7 +80,7 @@ const Request = (props) => {
                                 <p>Ngaỳ trả: {request.return_date}</p>
                             </div>
                         )
-                    }
+                    }   
                     {
                         request.user.id === context.user.id &&
                         ( <Card style={{margin: '20px 0'}}>
