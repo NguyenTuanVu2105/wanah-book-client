@@ -1,0 +1,12 @@
+.search-book-title {
+    padding: 20px 0;
+    font-size: 17px;
+}
+
+.borrow-time {
+    width: 104px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 5px;
+}

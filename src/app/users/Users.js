@@ -1,14 +1,14 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import './Users.css'
-import {userDatas} from './data/userDetail'
+import { userDatas } from './data/userDetail'
 import UserDetail from './UserDetail'
-import { Button, Icon, Empty} from 'antd'
+import { Button, Icon, Empty } from 'antd'
 import { getUserNearest } from '../../api/base/user'
 import { Spin } from 'antd'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { withRouter } from 'react-router-dom'
 
-const Users = (props) => {  
+const Users = (props) => {
     const [showToggle, setShowToggle] = useState(false)
     const [sortBy, setSortBy] = useState("Mới nhất")
 
@@ -29,7 +29,7 @@ const Users = (props) => {
             }
         }
     }
-    
+
     useEffect(() => {
         _fetchData(1)
     }, [])
@@ -45,7 +45,7 @@ const Users = (props) => {
         props.history.push(`/user/${id}/${action}`)
     }
 
-    return(
+    return (
         <div>
             <div className="title">
                 <div className="header-title"><b>Sắp xếp theo:</b></div>
@@ -63,31 +63,31 @@ const Users = (props) => {
                 )
             }
             <InfiniteScroll
-                    dataLength={users.length}
-                    next={() => {
-                        _fetchData(page+1)
-                        setPage(page+1)
-                    }}
-                    hasMore={hasMore}
-                    loader={<Spin style={{margin: 'auto 0', width: '100%'}} tip="Loading..."></Spin>}
+                dataLength={users.length}
+                next={() => {
+                    _fetchData(page + 1)
+                    setPage(page + 1)
+                }}
+                hasMore={hasMore}
+                loader={<Spin style={{ margin: 'auto 0', width: '100%' }} tip="Loading..."></Spin>}
 
-                    >
-            {
-                users.length > 0 ?
-                users.map(userdata => (
-                    <UserDetail 
-                    btn={( 
-                        <div className="book-review">
-                    <Button type="danger" className="button-book" onClick={() => handleClick(userdata.id, 1)}>Tủ sách <Icon type="read"/> {userdata.BookCount}</Button>
-                            <Button type="shipped" className="button-review-user" onClick={() => handleClick(userdata.id, 2)}>Reviews</Button>      
-                        </div>
-                    )} 
-                    user={userdata}></UserDetail>
-                )) : 
-                <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
-            }   
-            </InfiniteScroll> 
-        </div>   
+            >
+                {
+                    users.length > 0 ?
+                        users.map(userdata => (
+                            <UserDetail
+                                btn={(
+                                    <div className="book-review">
+                                        <Button type="danger" className="button-book" onClick={() => handleClick(userdata.id, 1)}>Tủ sách <Icon type="read" /> {userdata.BookCount}</Button>
+                                        <Button type="shipped" className="button-review-user" onClick={() => handleClick(userdata.id, 2)}>Reviews</Button>
+                                    </div>
+                                )}
+                                user={userdata}></UserDetail>
+                        )) :
+                        <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
+                }
+            </InfiniteScroll>
+        </div>
     )
 }
 

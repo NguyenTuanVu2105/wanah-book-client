@@ -57,3 +57,24 @@
     background-color: #c8e6f5;
     cursor: pointer;
   }
+
+.button-book {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.button-review-user {
+  color: #fff;
+  background-color: #fcb2bf !important;
+  border-color: #fcb2bf !important;
+}
+
+.button-book:hover{
+  color: #fff;
+}
+
+.button-review-user:hover{
+  color: #fff !important;
+}

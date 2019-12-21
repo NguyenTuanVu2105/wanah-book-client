@@ -34,7 +34,7 @@ const User = () => {
             <UserHeader user={user ? user.profile : null} grbtn={buttons}></UserHeader>
             <Tabs defaultActiveKey={action}>
                 <TabPane tab={`Tủ sách (${user ? user.books.length: 0})`} key="1">
-                    <BookCase books={user ? user.books: []}></BookCase>
+                    <BookCase books={user ? user.books: []} isBtn={true}></BookCase>    
                 </TabPane>
                 <TabPane tab={`Reviews (${user ? user.reviews.length: 0})`} key="2">
                     <Reviews reviews={user ? user.reviews: []}></Reviews>

@@ -5,7 +5,7 @@ import StarRatings from 'react-star-ratings'
 import { parseImage } from '../../../helper/parse/parser'
 
 const BookCase = (props) => {
-    let {books} = props
+    let {books, isBtn} = props
     return (
         <div className="bookcase">
             {
@@ -20,8 +20,11 @@ const BookCase = (props) => {
                                 <a className="book-case-name" href={`/book/${book.id}`}>{book.name}</a>
                                 <div className="flex book-case-author">Tác giả:&nbsp;&nbsp;<a className="inline" href="/">{book.authors.map(x => x.name).join(' ')}</a></div>
                                 <StarRatings rating={book.star} starRatedColor="#ffdc34" numberOfStars={5} starDimension="14px" starSpacing="3px"/>
-                            </div>
-                            <Button>Mượn sách</Button>
+                                
+                            </div>  
+                            <div className="borrow-book">
+                                    {isBtn && <Button className="button-borrow">Mượn sách</Button>}
+                                </div>                        
                         </div>    
                     </Card> 
                 )) : <Empty image={Empty.PRESENTED_IMAGE_SIMPLE}></Empty>

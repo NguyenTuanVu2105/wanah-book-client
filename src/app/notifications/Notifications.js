@@ -44,31 +44,31 @@ const Notifications = (props) => {
                     const isIncoming = context.user.id !== request.user.id
                     const user = isIncoming ? request.user : request.book_user.user
                     const message = isIncoming ? 
-                    `Yêu cầu mượn sách ${request.book_user.book.name} từ bạn` :
-                    `Nhận yêu cầu mượn sách ${request.book_user.book.name} từ bạn`
+                    `Yêu cầu mượn sách " ${request.book_user.book.name} " từ bạn` :
+                    `Nhận yêu cầu mượn sách " ${request.book_user.book.name} " từ bạn`
                     const status = request.book_user.status === 'Đợi Mượn' ? 'Đang chờ chấp nhận' :
                                     (request.book_user.status === 'Liên lạc' ? (request.is_accept ? 'Đang liên lạc' : (isIncoming ? 'Sách đã cho mượn' : 'Sách đã được mượn')) 
                                     : (request.is_accept ? 'Đã mượn' : 'Sách đã được mượn')
                                     )
                     const description = (
-                        <div>
+                        <div className="notification-content">
                             <p>{message}</p>
                             <p>Thời gian: {request.time_borrow} tuần</p>
                             <p>Trạng thái: <strong>{status}</strong></p>
                             {isIncoming ?                                         
                                 status === 'Đang liên lạc' || status === 'Đã mượn' ? 
                                 (
-                                    <Button style={{background: 'blue', color:'white'}} onClick={() => handleDeny(request.id)}>Xem chi tiết</Button>
+                                    <Button style={{background: '#46b3e6', color:'#000'}} onClick={() => handleDeny(request.id)}>Xem chi tiết</Button>
                                 ) :
                                 (<div>
                                     <Button 
-                                        style={{background: status === 'Sách đã cho mượn' ? '#9595fd' : 'blue', color:'white', marginRight:'10px'}}
+                                        style={{background: status === 'Sách đã cho mượn' ? '#9595fd' : '#6decb9', color:'#000', marginRight:'10px'}}
                                         disabled={status === 'Sách đã cho mượn'}
                                         onClick={() => handleAccept(request.id)}
                                     >
                                         Chấp nhận
                                     </Button>
-                                    <Button style={{background: 'red', color:'white'}} onClick={() => handleDeny(request.id)}>Từ chối</Button>
+                                    <Button style={{background: '#f6da63', color:'#000'}} onClick={() => handleDeny(request.id)}>Từ chối</Button>
                                 </div>) : 
                                 (
                                     status === 'Đang liên lạc' || status === 'Đã mượn' ? 

@@ -39,3 +39,7 @@
         cursor: pointer;
         background-color:  #ea5e5e;
     }
+
+    .notification-content {
+        color: #aa26da;
+    }
