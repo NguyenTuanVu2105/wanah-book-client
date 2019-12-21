@@ -57,16 +57,15 @@ const Request = (props) => {
                                         title={request.user.profile.first_name + " " + request.user.profile.last_name}
                                         description={request.user.profile.address_detail}
                                     />
-                                    <div style={{display: 'flex', alignItems: 'center', marginTop: '20px', marginLeft: '110px'}}>
-                                        <div style={{marginRight: '40px', display: 'flex', alignItems: 'center'}}>
+                                    <div style={{ display: 'flex', alignItems: 'center', marginTop: '20px', marginLeft: '110px' }}>
+                                        <div style={{ marginRight: '40px', display: 'flex', alignItems: 'center' }}>
                                             <FontAwesomeIcon style={{ width: '40px', height: '30px', color: '#7CC677' }} icon="book-open"></FontAwesomeIcon>
-                                            <div style={{color: '#8c8c8c', marginLeft: '9px'}}>2</div>
+                                            <div style={{ color: '#8c8c8c', marginLeft: '9px' }}>2</div>
                                         </div>
-                                        <div style={{display: 'flex', alignItems: 'center'}}>
+                                        <div style={{ display: 'flex', alignItems: 'center' }}>
                                             <FontAwesomeIcon style={{ width: '40px', height: '25px', color: '#EBAD93' }} icon="file-alt"></FontAwesomeIcon>
-                                            <div style={{color: '#8c8c8c', marginLeft: '1px'}}>5</div>
+                                            <div style={{ color: '#8c8c8c', marginLeft: '1px' }}>5</div>
                                         </div>
-
                                     </div>
 
                                     <a style={{ margin: '15px 0 0 40px', display: 'block' }} href='/'><Icon type="message" theme="filled" /> Nhắn tin với {request.user.profile.first_name + " " + request.user.profile.last_name}</a>
@@ -84,6 +83,16 @@ const Request = (props) => {
                                 <a className="book-case-name" href={`/book/${request.book_user.book.id}`}>{request.book_user.book.name}</a>
                                 <div className="flex book-case-author">Tác giả:&nbsp;&nbsp;<a className="inline" href="/">{request.book_user.book.authors.map(x => x.name).join(' ')}</a></div>
                                 <StarRatings rating={request.book_user.book.star} starRatedColor="#ffdc34" numberOfStars={5} starDimension="14px" starSpacing="3px" />
+                                <div style={{ display: 'flex', alignItems: 'center', marginTop: '20px', marginLeft: '50px' }}>
+                                        <div style={{ marginRight: '40px', display: 'flex', alignItems: 'center' }}>
+                                            <FontAwesomeIcon style={{ width: '40px', height: '30px', color: '#7CC677' }} icon="book-open"></FontAwesomeIcon>
+                                            <div style={{ color: '#8c8c8c', marginLeft: '9px' }}>2</div>
+                                        </div>
+                                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                                            <FontAwesomeIcon style={{ width: '40px', height: '25px', color: '#EBAD93' }} icon="file-alt"></FontAwesomeIcon>
+                                            <div style={{ color: '#8c8c8c', marginLeft: '1px' }}>5</div>
+                                        </div>
+                                    </div>
                             </div>
                         </div>
                     </Card>
