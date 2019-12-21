@@ -6,8 +6,6 @@ Link admin repo: https://github.com/NguyenTuanVu2105/admin-wanah-book
 
 Link slide: https://github.com/NguyenTuanVu2105/wanah-book-client/blob/master/web3.pptx
 
-Demo sản phẩm: https://wanahbook.herokuapp.com
-
 
 ## I. Tổng quan
 
