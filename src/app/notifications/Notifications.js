@@ -22,7 +22,7 @@ const Notifications = (props) => {
     useEffect(() => {
         _fetchData()
     }, [])
-   
+
     const handleUser = (id) => {
         props.history.push(`/user/${id}/1`)
     }
@@ -47,48 +47,50 @@ const Notifications = (props) => {
                 requests.map(request => {
                     const isIncoming = context.user.id !== request.user.id
                     const user = isIncoming ? request.user : request.book_user.user
-                    const message = isIncoming ? 
-                    `Yêu cầu mượn sách " ${request.book_user.book.name} " từ bạn` :
-                    `Nhận yêu cầu mượn sách " ${request.book_user.book.name} " từ bạn`
+                    const message = isIncoming ?
+                        `Yêu cầu mượn sách " ${request.book_user.book.name} " từ bạn` :
+                        `Nhận yêu cầu mượn sách " ${request.book_user.book.name} " từ bạn`
                     const status = request.book_user.status === 'Đợi Mượn' ? 'Đang chờ chấp nhận' :
-                                    (request.book_user.status === 'Liên lạc' ? (request.is_accept ? 'Đang liên lạc' : (isIncoming ? 'Sách đã cho mượn' : 'Sách đã được mượn')) 
-                                    : (request.is_accept ? 'Đã mượn' : 'Sách đã được mượn')
-                                    )
+                        (request.book_user.status === 'Liên lạc' ? (request.is_accept ? 'Đang liên lạc' : (isIncoming ? 'Sách đã cho mượn' : 'Sách đã được mượn'))
+                            : (request.is_accept ? 'Đã mượn' : 'Sách đã được mượn')
+                        )
                     const description = (
                         <div className="notification-content">
-                            <p>{message}</p>
-                            <p>Thời gian: {request.time_borrow} tuần</p>
-                            <p>Trạng thái: <strong>{status}</strong></p>
-                            {isIncoming ?                                         
-                                status === 'Đang liên lạc' || status === 'Đã mượn' ? 
-                                (
-                                    <Button style={{background: '#46b3e6', color:'#000'}} onClick={() => handleDetail(request.id)}>Xem chi tiết</Button>
-                                ) :
-                                (<div>
-                                    <Button 
-                                        style={{background: status === 'Sách đã cho mượn' ? '#9595fd' : '#6decb9', color:'#000', marginRight:'10px'}}
-                                        disabled={status === 'Sách đã cho mượn'}
-                                        onClick={() => handleAccept(request.id)}
-                                    >
-                                        Chấp nhận
-                                    </Button>
-                                    <Button style={{background: '#f6da63', color:'#000'}} onClick={() => handleDeny(request.id)}>Từ chối</Button>
-                                </div>) : 
-                                (
-                                    status === 'Đang liên lạc' || status === 'Đã mượn' ? 
+                            <div>{message}</div>
+                            <div style={{display: 'flex', margin: '5px 0px 10px 0px'}}>
+                                <div style={{width: '50%'}}>Thời gian: {request.time_borrow} tuần</div>
+                                <div>Trạng thái: <strong>{status}</strong></div>
+                            </div>
+                            {isIncoming ?
+                                status === 'Đang liên lạc' || status === 'Đã mượn' ?
                                     (
-                                        <Button style={{background: 'green', color:'white'}} onClick={() => handleDetail(request.id)}>Xem chi tiết</Button>
+                                        <Button style={{ background: '#46b3e6', color: '#000' }} onClick={() => handleDetail(request.id)}>Xem chi tiết</Button>
                                     ) :
-                                    (
-                                        <Button style={{background: 'red', color:'white'}} onClick={() => handleDeny(request.id)}>Hủy yêu cầu</Button>
-                                    )
+                                    (<div>
+                                        <Button
+                                            style={{ background: status === 'Sách đã cho mượn' ? '#9595fd' : '#6decb9', color: '#000', marginRight: '10px' }}
+                                            disabled={status === 'Sách đã cho mượn'}
+                                            onClick={() => handleAccept(request.id)}
+                                        >
+                                            Chấp nhận
+                                    </Button>
+                                        <Button style={{ background: '#f6da63', color: '#000' }} onClick={() => handleDeny(request.id)}>Từ chối</Button>
+                                    </div>) :
+                                (
+                                    status === 'Đang liên lạc' || status === 'Đã mượn' ?
+                                        (
+                                            <Button style={{ background: 'green', color: 'white' }} onClick={() => handleDetail(request.id)}>Xem chi tiết</Button>
+                                        ) :
+                                        (
+                                            <Button style={{ background: 'red', color: 'white' }} onClick={() => handleDeny(request.id)}>Hủy yêu cầu</Button>
+                                        )
                                 )
                             }
                         </div>
                     )
                     return (
                         <div className="notification-raw">
-                            <Card 
+                            <Card
                                 className="notification-row"
                             >
                                 <Meta
@@ -97,7 +99,7 @@ const Notifications = (props) => {
                                         (<span onClick={() => handleUser(user.id)} className='hover-bolder'>{user.profile.first_name + " " + user.profile.last_name}</span>)
                                     }
                                     description={description}
-                                />      
+                                />
                             </Card>,
                         </div>
                     )
