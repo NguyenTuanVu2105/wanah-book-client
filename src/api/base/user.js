@@ -13,3 +13,10 @@ export const getUserNearest = (limit, page) => {
         method: 'get',
     })
 }
+
+export const getUserDetail = (userId) => {
+    return createAuthApiRequest({
+        url: `/api/user?userId=${userId}`, 
+        method: 'get',
+    })
+}
