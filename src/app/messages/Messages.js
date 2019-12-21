@@ -1,44 +1,101 @@
-import React from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import './Messages.scss'
-import {Input, Avatar} from "antd"
-
-import { user_contact, messages } from './data/Message'
+import {Input, Avatar, Empty, message} from "antd"
+import AppContext from '../../AppContext'
+import { user_contact } from './data/Message'
+import { useParams, withRouter } from 'react-router-dom'
+import { getMessage, getContacts, addMessage } from '../../api/base/message'
+import { getUserDetail } from '../../api/base/user'
+import {parseImage} from '../../helper/parse/parser'
 const { Search } = Input
 
-const Messages = () => {
-    const user_id = 6;
+const Messages = (props) => {
+    const context = useContext(AppContext)
+    const {id} = useParams()
+    const [userContact, setUserContact] = useState({})
+    const [value, setValue] = useState('')
+    const [contacts, setContacts] = useState([])
+    const [messages, setMessages] = useState([])
+    const _fetchData = async () => {
+        const result = await getUserDetail(id)
+        if (result.success) {
+            setUserContact(result.data)
+        }
+
+    }
+    const _getMessage = async() => {
+        const result = await getMessage(id)
+        if (result.success) {
+            setMessages(result.data)
+        }
+    }
+
+    const _getContacts = async() => {
+        const result = await getContacts()
+        if (result.success) {
+            setContacts(result.data)
+        }
+    }
+    useEffect(() => {
+        _getContacts()
+    }, [])
+    useEffect(() => {
+        _getMessage()
+    }, [id])
+    useEffect(() => {
+        _fetchData()
+    }, [id])
+
+    const handleAddMessage = () => {
+        addMessage(id, value)
+        var message = {
+            fromId: context.user.id,
+            content: value,
+            toId: userContact.id
+        }
+        setMessages([...messages, message])
+        setValue('')
+    }
+
+    const style = {
+        background: '#e6e6e6'
+    }
     return (
         <div className="messages">
             <div className="messages-chat">
                 <div style={{height: "calc(100vh - 101px)", overflow: "overlay"}}>
                     {
+                        messages.length > 0 ?
                         messages.map(message => {
-                            if (message.sender === user_id) {
+                            if (!message.content) return
+                            if (message.fromId === context.user.id) {
                                 return (
                                     <div className="messages-chat-sender">
                                         <pre className="messages-chat-sender-content"> {message.content} </pre>
                                     </div>
-
                                 )
                             } else {
-                                var user_send = user_contact.find(user => user.id === message.sender)
                                 return (
                                     <div className="messages-chat-receiver">
-                                        <Avatar src={user_send.avatar}></Avatar>
+                                        <Avatar src={userContact.profile ?  parseImage(userContact.profile.avatar) : null}></Avatar>
                                         <pre className="messages-chat-sender-content"> {message.content} </pre>
                                     </div>
                                 )
                             }
-                        })
+                        }) : <Empty image={Empty.PRESENTED_IMAGE_SIMPLE}></Empty>
                     }
                 </div>
-                <Search
-                    placeholder="Aa"
-                    enterButton="Gửi"
-                    size="medium"
-                    style={{ position: 'absolute', bottom: 5, width: '68%', borderRadius: 30 }}
-                    onSearch={value => console.log(value)}
-                />
+                { contacts.length > 0 &&
+                                    <Search
+                                    placeholder="Aa"
+                                    enterButton="Gửi"
+                                    size="medium"
+                                    style={{ position: 'absolute', bottom: 5, width: '68%', borderRadius: 30 }}
+                                    value ={value}
+                                    onChange ={(e) => setValue(e.target.value)}
+                                    onSearch={handleAddMessage}
+                                />
+                }
 
 
             </div>
@@ -50,15 +107,15 @@ const Messages = () => {
                     size="small"
                 />
                 {
-                    user_contact.map(user => (
-                        <div className="messages-chat-box">
-                            <div style={{ width: '20%' }}><Avatar src={user.avatar}></Avatar></div>
+                    contacts.length > 0 ?
+                    contacts.map(user => (
+                        <div className="messages-chat-box" style={user.id === parseInt(id) ? style : null} onClick={() => props.history.push(`/message/${user.id}`)}>
+                            <div style={{ width: '20%' }}><Avatar src={parseImage(user.profile.avatar)}></Avatar></div>
                             <div className="messages-chat-box-content">
-                                <strong> {user.name}</strong>
-                                <div className="text-more" style={{ width: '100%', marginTop: '8px' }}> {user.last_message} </div>
+                                <div> {user.profile.first_name + " " + user.profile.last_name}</div>
                             </div>
                         </div>
-                    ))
+                    )) : <Empty image={Empty.PRESENTED_IMAGE_SIMPLE}></Empty>
                 }
 
             </div>
@@ -66,4 +123,4 @@ const Messages = () => {
     )
 }
 
-export default Messages
+export default withRouter(Messages)

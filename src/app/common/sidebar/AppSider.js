@@ -8,8 +8,28 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button, Modal, Input, Row, Avatar } from 'antd';
 import AppContext from '../../../AppContext'
 import { parseImage } from '../../../helper/parse/parser'
+import { getContacts } from '../../../api/base/message'
 
 class AppSider extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            link : '/message/1'
+        }
+    }
+    fetchData = async() => {
+        const result = await getContacts()
+        if (result.success) {
+            if (result.data.length > 0) {
+                this.setState({
+                    link: `/message/${result.data[0].id}`
+                })
+            }
+        }
+    }  
+    componentDidMount() {
+        this.fetchData()
+    }
     render(){
         return(
             <Col className="sidebar flex-top col-1p5">
@@ -27,10 +47,16 @@ class AppSider extends React.Component{
                         }}
                         renderItem={(item, index) => (
                             <List.Item className="sidebar-item">
-                                <Link to={item.path} className="sidebar-link">
-                                    <FontAwesomeIcon className={`sidebar-icon-${index % 4}`} icon={item.icon} size="lg"></FontAwesomeIcon>
-                                    <span style={{ margin: '10px' }}>{item.name}</span>
-                                </Link>
+                                {item.name === 'Tin nhắn' ? 
+                            <Link to={this.state.link} className="sidebar-link">
+                                <FontAwesomeIcon className={`sidebar-icon-${index % 4}`} icon={item.icon} size="lg"></FontAwesomeIcon>
+                                <span style={{ margin: '10px' }}>{item.name}</span>
+                            </Link> :
+                            <Link to={item.path} className="sidebar-link">
+                                <FontAwesomeIcon className={`sidebar-icon-${index % 4}`} icon={item.icon} size="lg"></FontAwesomeIcon>
+                                <span style={{ margin: '10px' }}>{item.name}</span>
+                            </Link>
+                            }
                             </List.Item>
                         )}
                     >

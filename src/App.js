@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import { Layout, Row } from 'antd';
 import './App.scss'
 import { withRouter } from 'react-router-dom'
@@ -10,6 +10,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { checkAuth, getUser } from './api/auth/auth';
 import AppContext from './AppContext';
+import { getContacts } from './api/base/message';
 library.add(fab, fas)
 
 const { Content } = Layout
@@ -32,7 +33,7 @@ const App = (props) => {
             avatar: userCookies ? userCookies.avatar : null
         })
       }
-    
+      
       useEffect(() => {
           _fetchData()
       }, [])
