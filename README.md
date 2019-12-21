@@ -1,5 +1,14 @@
 # WanahBook - An Book Exchange Social Network
 
+Link server repo: https://github.com/NguyenTuanVu2105/wanah-book-server
+
+Link admin repo: https://github.com/NguyenTuanVu2105/admin-wanah-book
+
+Link slide: https://github.com/NguyenTuanVu2105/wanah-book-client/blob/master/web3.pptx
+
+Demo sản phẩm: https://wanahbook.herokuapp.com
+
+
 ## I. Tổng quan
 
 **WanahBook** là một nền tảng kết nối những người đọc sách, cho phép người dùng mượn và chia sẻ thông tin về sách. 
@@ -441,7 +450,6 @@ Phần mềm gồm có 3 actor chính là
 <img src = "./docs/business/User.png" alt="Business Process">
 <img src = "./docs/business/Admin.png" alt="Business Process">
 
+## VII. Thiết kế cơ sở dữ liệu
 
-
-
-
+<img src = "./docs/pages/wanah.png" alt="CSDL">
