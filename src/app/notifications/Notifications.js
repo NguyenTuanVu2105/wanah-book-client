@@ -37,6 +37,10 @@ const Notifications = (props) => {
         _fetchData()
     }
 
+    const handleDetail = async (id) => {
+        props.history.push(`/request/${id}`)
+    }
+
     return (
         <div>
             {
@@ -58,7 +62,7 @@ const Notifications = (props) => {
                             {isIncoming ?                                         
                                 status === 'Đang liên lạc' || status === 'Đã mượn' ? 
                                 (
-                                    <Button style={{background: 'blue', color:'white'}} onClick={() => handleDeny(request.id)}>Xem chi tiết</Button>
+                                    <Button style={{background: 'blue', color:'white'}} onClick={() => handleDetail(request.id)}>Xem chi tiết</Button>
                                 ) :
                                 (<div>
                                     <Button 
@@ -73,7 +77,7 @@ const Notifications = (props) => {
                                 (
                                     status === 'Đang liên lạc' || status === 'Đã mượn' ? 
                                     (
-                                        <Button style={{background: 'green', color:'white'}} onClick={() => handleDeny(request.id)}>Xem chi tiết</Button>
+                                        <Button style={{background: 'green', color:'white'}} onClick={() => handleDetail(request.id)}>Xem chi tiết</Button>
                                     ) :
                                     (
                                         <Button style={{background: 'red', color:'white'}} onClick={() => handleDeny(request.id)}>Hủy yêu cầu</Button>

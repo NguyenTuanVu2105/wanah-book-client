@@ -38,4 +38,10 @@ export const denyRequest = (request_id) => {
   })
 }
 
+export const getRequestDetail = (request_id) => {
+  return createAuthApiRequest({
+      url: `/api/request?request_id=${request_id}`,
+      method: 'get',
+  })
+}
  
