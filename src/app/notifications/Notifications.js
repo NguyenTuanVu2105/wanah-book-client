@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useEffect, useContext } from 'react'
 import './Notifications.css'
 import { Card, Avatar, Button } from 'antd';
@@ -7,12 +6,6 @@ import { getRequests, acceptRequest, denyRequest } from '../../api/base/request'
 import { parseImage } from '../../helper/parse/parser'
 import { withRouter } from 'react-router-dom';
 import AppContext from '../../AppContext';
-=======
-import React from 'react'
-import { Card, Avatar, Button } from 'antd';
-import {users} from './data/User'
-import '../notifications/Notifications.css'
->>>>>>> dcd01ed5f4a1c14efb89a21a98e3ee10b79e7bcc
 
 const { Meta } = Card;
 
