@@ -30,7 +30,7 @@ const Users = (props) => {
                                 btn={(
                                     <div className="book-review">
                                         <Button type="danger" className="button-book" onClick={() => handleClick(userdata.id, 1)}>Tủ sách <Icon type="read" /> {userdata.BookCount}</Button>
-                                        <Button type="shipped" className="button-review-user" onClick={() => handleClick(userdata.id, 2)}>Reviews</Button>
+                                <Button type="shipped" className="button-review-user" onClick={() => handleClick(userdata.id, 2)}>Reviews <Icon type="form" /> {userdata.ReviewCount}</Button>
                                     </div>
                                 )}
                                 user={userdata}></UserDetail>

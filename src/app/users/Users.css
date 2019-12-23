@@ -66,6 +66,9 @@
 }
 
 .button-review-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #fff;
   background-color: #fcb2bf !important;
   border-color: #fcb2bf !important;

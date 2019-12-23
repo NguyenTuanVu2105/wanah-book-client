@@ -87,7 +87,14 @@ class RegisterForm extends React.Component {
         if (!err) {
           const address = this.state.address
           const position = this.state.position
-          this.submitRegister({...values, address, ...position})
+          if (address && position) {
+            this.submitRegister({...values, address, ...position})
+          }
+          else {
+            this.setState({
+              message: "Bạn chưa xác nhận địa chỉ"
+            })
+          }
         }
       });
   };

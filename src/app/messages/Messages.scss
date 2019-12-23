@@ -16,7 +16,6 @@
         }
     }
     .messages-chat{
-        
         width:70%;
         background-color: #F0F2F5;
         margin: 0 0 0 -15px;
@@ -31,6 +30,9 @@
                 font-size: 15px;
                 font-family: inherit;
                 padding: 5px 7px;
+                white-space: normal;
+                word-wrap: break-word;
+                max-width: 400px;
             }
         }
         .messages-chat-receiver{

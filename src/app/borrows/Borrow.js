@@ -6,6 +6,7 @@ import { getBookDetail } from '../../api/base/book';
 import { Button, Modal, InputNumber, notification, Empty } from 'antd';
 import { addBorrowRequests } from '../../api/base/request';
 import '../borrows/Borrow.css'
+import { addMessage } from '../../api/base/message';
 
 const Borrow = () => {
     let {id} = useParams();
@@ -25,7 +26,7 @@ const Borrow = () => {
         }
     }  
 
-    const handleBorrow = async (id) => {
+    const handleBorrow = async (id, userId, message) => {
         const value = document.getElementById(`week-${id}`).value
         const result = await addBorrowRequests(id, value)
         if (result.success) {
@@ -39,8 +40,10 @@ const Borrow = () => {
                     message: 'Mượn sách thành công', 
                     description: 'Yêu cầu mượn sách của bạn đã được gửi đi. Đang chờ chủ sách chấp nhận'
                 })
+                await addMessage(userId, message)
             }
         }
+
     }
 
     useEffect(() => {
@@ -65,7 +68,12 @@ const Borrow = () => {
                                         </div>
                                     {
                                         user.book_users.status === 'Đợi Mượn' ?
-                                        (<Button onClick={() => handleBorrow(user.book_users.id)} className="button-borrow">Mượn sách</Button>) : 
+                                        (<Button onClick={() => {
+                                            var message = `Chào ${user.profile.first_name + " " + user.profile.last_name}, Cho mình mượn quyển ${book.name} nha`
+                                            handleBorrow(user.book_users.id, user.id, message) 
+                                        }
+                                        } 
+                                        className="button-borrow">Mượn sách</Button>) : 
                                         (<Button disabled>Đợi mượn</Button>)
                                     }
                                 </div>

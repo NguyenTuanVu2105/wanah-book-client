@@ -2,7 +2,11 @@ import React, { useState, useRef, useEffect } from 'react'
 import L from "leaflet";
 import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet'
 import axios from 'axios'
-import { AutoComplete } from 'antd';
+// import 'esri-leaflet-geocoder'
+// import 'esri-leaflet'
+// import LCG from 'leaflet-control-geocoder';
+import 'leaflet-geocoder-mapzen';
+import { Button } from 'react-bootstrap';
 
 const MapConfirm = (props) => {
   const key = 'P4QzOCt4wWfPKfuPuMF1UQSupLKLsO7ZC4DBRF6GAoC0AcaSAKRvD4v2vix948q7'
@@ -10,50 +14,58 @@ const MapConfirm = (props) => {
   const mapRef = useRef(null)
   const [hasLocation, setHasLocation] = useState(false)
   const {address, setAddress, position , setPosition} = props
-  const [data, setData] = useState([])
+  const [locate, setLocate] = useState(false)
   const handleClick = (e) => {
     setPosition(e.latlng)
+    axios.get(`https://api.jawg.io/places/v1/reverse?access-token=${key}&point.lat=${e.latlng.lat}&point.lon=${e.latlng.lng}&size=1&boundary.circle.radius=${10}&layers=address`)
+    .then(result => {
+      setAddress(result.data.features[0].properties.label)
+    })
   }
 
   useEffect(()=> {
     const map = mapRef.current.leafletElement
+    var options = {
+      url: "https://places.jawg.io/v1",
+      layers: ["street", "address", "venue"],
+  }
+    const gencoder = L.control.geocoder(key, options);
+    gencoder.addTo(map)
+    gencoder.on('select', function({latlng, feature}) {
+      setPosition(latlng)
+      setAddress(feature.properties.label)
+    })
     if (map != null) {
       map.locate()
     }
   }, [])
 
-  useEffect(() => {
-    if (position) {
-      axios.get(`https://api.jawg.io/places/v1/reverse?access-token=${key}&point.lat=${position.lat}&point.lon=${position.lng}&size=1&boundary.circle.radius=${10}&layers=address`)
-      .then(result => {
-        setAddress(result.data.features[0].properties.label)
-      })
-    }
-  }, [position])
-
+  const handleLocate = () => {
+    const map = mapRef.current.leafletElement
+    map.locate()
+    setLocate(false)
+  }
+  
   const handleLocationFound = (e) => {
     setHasLocation(true)
     setPosition(e.latlng)
+    if (!locate) {
+      axios.get(`https://api.jawg.io/places/v1/reverse?access-token=${key}&point.lat=${e.latlng.lat}&point.lon=${e.latlng.lng}&size=1&boundary.circle.radius=${10}&layers=address`)
+      .then(result => {
+        setAddress(result.data.features[0].properties.label)
+      })
+      setLocate(true)
+    }
   }
 
-  const onSelect = () => {
-    
-  }
-
-  const onSearch = () => {
-    setData(['asd','da','a'])
-  }
-
+  const marker = hasLocation ? (
+    <Marker position={position}>
+      <Popup>{address}</Popup>
+    </Marker>
+  ) : null
 
   return (
     <div>
-        <AutoComplete
-          dataSource={data}
-          style={{ width: 800 }}
-          onSelect={onSelect}
-          onSearch={onSearch}
-          placeholder="Nhập địa chỉ của bạn tại đây"
-        />
           <LeafletMap 
       center={position} 
       zoom={15}
@@ -70,7 +82,10 @@ const MapConfirm = (props) => {
           </Marker>}
     </LeafletMap>
 
+    <div className='flex'>
     <div style={{background: 'white', marginTop:'30px', fontSize:'20px', fontWeight: 'bold'}}>{address}</div>
+    <Button style={{margin: '30px 15px', height:'35px'}} onClick={handleLocate}>vị trí của bạn</Button>
+    </div>
     </div>
   );
 }
