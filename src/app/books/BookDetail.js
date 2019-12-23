@@ -89,7 +89,7 @@ const BookDetail = (props) => {
               <div>
                 <strong>Nội dung sách</strong>
                 <div style={{ margin: '10px 0 30px 0' }}>
-                  <ShowMore lines={2} more={<div style={{fontWeight: 500, textDecoration: 'none'}}><i>-> xem thêm</i></div>} less={<div style={{fontWeight: 500}}><i>-> rút gọn</i></div>}>                    
+                  <ShowMore lines={2} more={<div style={{fontWeight: 500, textDecoration: 'none', color: "#1890ff"}}><a>Xem thêm</a></div>} less={<div style={{fontWeight: 500, textDecoration: 'none',  color: "#1890ff"}}><a>Rút gọn</a></div>}>                    
                     {book.description}
                   </ShowMore>
                 </div>
