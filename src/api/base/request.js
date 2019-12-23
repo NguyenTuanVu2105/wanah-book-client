@@ -44,4 +44,25 @@ export const getRequestDetail = (request_id) => {
       method: 'get',
   })
 }
+
+export const convertHavedBorrow = (book_user_id, time_borrow) => {
+  return createAuthApiRequest({
+    url: '/api/own/convert/borrow',
+    method: 'post',
+    data: {
+      book_user_id,
+      time_borrow
+    }
+})
+}
+
+export const convertReturn = (book_user_id) => {
+  return createAuthApiRequest({
+    url: '/api/own/convert/return',
+    method: 'post',
+    data: {
+      book_user_id,
+    }
+})
+}
  

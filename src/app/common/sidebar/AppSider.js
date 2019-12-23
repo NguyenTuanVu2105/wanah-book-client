@@ -14,7 +14,7 @@ class AppSider extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            link : '/message/1'
+            link : '/message/0'
         }
     }
     fetchData = async() => {

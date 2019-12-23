@@ -38,7 +38,7 @@ const Messages = (props) => {
     }
     useEffect(() => {
         _getContacts()
-    }, [])
+    }, [context.user.id])
     useEffect(() => {
         _getMessage()
     }, [id])
@@ -49,7 +49,7 @@ const Messages = (props) => {
     const handleAddMessage = () => {
         addMessage(id, value)
         var message = {
-            fromId: context.user.id,
+            fromId: parseInt(context.user.id),
             content: value,
             toId: userContact.id
         }
@@ -60,15 +60,21 @@ const Messages = (props) => {
     const style = {
         background: '#e6e6e6'
     }
+    useEffect(() => {
+        var chat = document.getElementById('chat-container')
+        if (chat)
+            chat.scrollTop = chat.scrollHeight
+    })
     return (
         <div className="messages">
             <div className="messages-chat">
-                <div style={{height: "calc(100vh - 101px)", overflow: "overlay"}}>
+                <div id="chat-container" style={{height: "calc(100vh - 101px)", overflow: "overlay"}}>
                     {
                         messages.length > 0 ?
                         messages.map(message => {
                             if (!message.content) return
-                            if (message.fromId === context.user.id) {
+                            console.log(message.fromId, parseInt(context.user.id))
+                            if (message.fromId === parseInt(context.user.id)) {
                                 return (
                                     <div className="messages-chat-sender">
                                         <pre className="messages-chat-sender-content"> {message.content} </pre>
@@ -100,12 +106,6 @@ const Messages = (props) => {
 
             </div>
             <div className="messages-search">
-                <Search
-                    placeholder="Tìm kiếm"
-                    onSearch={value => console.log(value)}
-                    style={{ borderRadius: "0", marginBottom: '10px', zIndex: 0 }}
-                    size="small"
-                />
                 {
                     contacts.length > 0 ?
                     contacts.map(user => (
