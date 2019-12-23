@@ -7,9 +7,9 @@ export const getBookByReview = (limit, page) => {
     })
 }
 
-export const searchBook = (q) => {
+export const searchBook = (q, limit, page) => {
     return createAuthApiRequest({
-        url: `/api/books/search?q=${q}`, 
+        url: `/api/books/search?q=${q}&limit=${limit}&page=${page}`, 
         method: 'get',
     })
 }
@@ -29,3 +29,30 @@ export const addBookUser = (bookid) => {
     })
 }
 
+export const searchBookByCategoryName = (q) => {
+    return createAuthApiRequest({
+        url: `/api/books/search/bycategoryname?q=${q}`, 
+        method: 'get',
+    })
+}
+
+export const searchBookByCategoryId = (id) => {
+    return createAuthApiRequest({
+        url: `/api/books/search/bycategoryid?id=${id}`, 
+        method: 'get',
+    })
+}
+
+export const searchBookByAuthorName = ({q, limit, page}) => {
+    return createAuthApiRequest({
+        url: `/api/books/search/byauthorname?q=${q}&limit=${limit}&page=${page}`, 
+        method: 'get',
+    })
+}
+
+export const searchBookByAuthorId = ({id, limit, page}) => {
+    return createAuthApiRequest({
+        url: `/api/books/search/byauthorid?id=${id}&limit=${limit}&page=${page}`, 
+        method: 'get',
+    })
+}

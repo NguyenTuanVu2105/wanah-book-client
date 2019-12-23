@@ -20,3 +20,10 @@ export const getUserDetail = (userId) => {
         method: 'get',
     })
 }
+
+export const getUserSearch = (name, limit, page) => {
+    return createAuthApiRequest({
+        url: `/api/auth/searchuser?name=${name}&limit=${limit}&page=${page}`, 
+        method: 'get',
+    })
+}

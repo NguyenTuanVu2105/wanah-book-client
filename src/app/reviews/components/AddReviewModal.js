@@ -43,7 +43,7 @@ const AddReviewModalWapper = (props) => {
     // }
 
     const _fetchData = async (searchValue) => {
-      let result = await searchBook(searchValue)
+      let result = await searchBook(searchValue, 10, 1)
       if (result.success) {
         setBooks(books => result.data)
       }

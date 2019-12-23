@@ -50,7 +50,7 @@ const BookDetail = (props) => {
 
   useEffect(() => {
     _fetchData()
-  }, [])
+  }, [id])
   return (
     <div>
       {

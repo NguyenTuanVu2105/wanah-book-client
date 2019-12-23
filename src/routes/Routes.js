@@ -4,10 +4,11 @@ import Paths from "./Paths"
 import App from "../App"
 // import AppNoSideBar from "../AppNoSideBar"
 import HomePage from '../app/homepage/HomePage'
-import Books from '../app/books/Books'
+import BooksContainer from '../app/books/BooksContainer'
+import AuthorSearch from '../app/books/AuthorSearch.js'
 import Reviews from '../app/reviews/Reviews'
 import Messages from '../app/messages/Messages'
-import Users from '../app/users/Users'
+import UserContainer from '../app/users/UserContainer'
 import Notifications from '../app/notifications/Notifications'
 import User from "../app/users/User"
 import BookDetail from "../app/books/BookDetail"
@@ -17,6 +18,8 @@ import ProfileUpdate from "../app/profile/ProfileUpdate"
 import Borrow from '../app/borrows/Borrow'
 import Request from "../app/notifications/Request"
 import Error404 from "../Error404"
+import Authors from "../app/books/Authors"
+import UserSearch from "../app/users/UserSearch"
 
 const routes = [
     {
@@ -30,11 +33,6 @@ const routes = [
         component: RegisterContainer
     },
     {
-        path: '/test',
-        exact: true,
-        component: MapTest
-    },
-    {
         component: App,
         routes: [
             {
@@ -45,7 +43,7 @@ const routes = [
             {
                 path: Paths.Books,
                 exact: true,
-                component: Books
+                component: BooksContainer
             },
             {
                 path: Paths.Reviews,
@@ -55,7 +53,7 @@ const routes = [
             {
                 path: Paths.Users,
                 exact: true,
-                component: Users
+                component: UserContainer
             },
             {
                 path: Paths.Notifications,
@@ -97,6 +95,21 @@ const routes = [
                 exact: true,
                 component: Request
             }, 
+            {
+                path: Paths.AuthorSearch,
+                exact: true,
+                component: AuthorSearch
+            },
+            {
+                path: Paths.Authors,
+                exact: true,
+                component: Authors
+            },
+            {
+                path: Paths.UserSearch,
+                exact: true,
+                component: UserSearch
+            },
             {
                 path: '*',
                 exact: true,

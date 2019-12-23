@@ -9,65 +9,16 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import { withRouter } from 'react-router-dom'
 
 const Users = (props) => {
-    const [showToggle, setShowToggle] = useState(false)
-    const [sortBy, setSortBy] = useState("Mới nhất")
-
-    const [page, setPage] = useState(1)
-    const [hasMore, setHasMore] = useState(true)
-    const [users, setUsers] = useState([])
-    const onToggle = () => {
-        setShowToggle(!showToggle)
-    }
-
-    const _fetchData = async (page) => {
-        const result = await getUserNearest(15, page)
-        if (result.success) {
-            if (result.data.length > 0) {
-                setUsers(users.concat(result.data))
-            } else {
-                setHasMore(false)
-            }
-        }
-    }
-
-    useEffect(() => {
-        _fetchData(1)
-    }, [])
-
-    const onSetSortBy = (newSortBy) => {
-        return () => {
-            setSortBy(newSortBy);
-            setShowToggle(!showToggle)
-        }
-    }
-
+    const {hasMore, users, page ,next} = props
     const handleClick = (id, action) => {
         props.history.push(`/user/${id}/${action}`)
     }
 
     return (
         <div>
-            <div className="title">
-                <div className="header-title"><b>Sắp xếp theo:</b></div>
-                <div className="header-filter" onClick={onToggle}> {sortBy} </div>
-                <div className="button-down"></div>
-                <div className="create-review">Tạo review</div>
-            </div>
-            {
-                showToggle && (
-                    <div className="show-filter">
-                        <div className="filter-item" onClick={onSetSortBy("Mới nhất")}>Mới nhất</div>
-                        <div className="filter-item" onClick={onSetSortBy("Mới nhì")}>Mới nhì</div>
-                        <div className="filter-item" onClick={onSetSortBy("Mới ba")}>Mới ba</div>
-                    </div>
-                )
-            }
             <InfiniteScroll
                 dataLength={users.length}
-                next={() => {
-                    _fetchData(page + 1)
-                    setPage(page + 1)
-                }}
+                next={next}
                 hasMore={hasMore}
                 loader={<Spin style={{ margin: 'auto 0', width: '100%' }} tip="Loading..."></Spin>}
 

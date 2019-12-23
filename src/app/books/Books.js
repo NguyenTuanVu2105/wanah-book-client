@@ -1,39 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import './Books.css'
 import BookCell from './component/BookCell'
-import { getBookByReview } from '../../api/base/book'
-import { parseImage } from '../../helper/parse/parser'
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { Spin } from 'antd'
 
-const Books = () => {
-    const [books, setBooks] = useState([])
-    const [page, setPage] = useState(1)
-    const [hasMore, setHasMore] = useState(true)
-    const _fetchData = async (value) => {
-        const result = await getBookByReview(25, value)
-        if (result.success) {
-            if (result.data.length > 0){
-                setBooks(books.concat(result.data))
-            } else {
-                setHasMore(false)
-            }
-        }
-    }
-
-    useEffect(() => {
-        _fetchData(page)
-    }, [])
+const Books = (props) => {
+    const {books, page, hasMore, next} = props
+    console.log(books)
     return (
-        <div>
-            <h3 className="book-suggest">Sách được gợi ý</h3>
-            
+        <div>     
             <InfiniteScroll
                     dataLength={books.length}
-                    next={() => {
-                        _fetchData(page+1)
-                        setPage(page+1)
-                    }}
+                    next={next}
                     hasMore={hasMore}
                     loader={<Spin style={{margin: 'auto 0', width: '100%'}} tip="Loading..."></Spin>}
                     >
