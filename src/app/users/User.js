@@ -21,7 +21,7 @@ const User = () => {
 
     useEffect(() => {
         fetchData()
-    }, [])
+    }, [id])
 
     const buttons = (
         <div className="user-btn-group">

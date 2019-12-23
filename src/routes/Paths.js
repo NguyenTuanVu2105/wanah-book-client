@@ -13,7 +13,10 @@ const Paths = {
     Profile: "/profile",
     UpdateProfile: "/updateprofile",
     Borrow: "/book/:id/borrow",
-    Request: "/request/:id"
+    Request: "/request/:id",
+    AuthorSearch: "/author/search/:query",
+    Authors: "/author/:id",
+    UserSearch: "/search/user/:query"
 }
 
 export default Paths
