@@ -6,6 +6,15 @@ Link admin repo: https://github.com/NguyenTuanVu2105/admin-wanah-book
 
 Link slide: https://github.com/NguyenTuanVu2105/wanah-book-client/blob/master/web3.pptx
 
+Link deploy: https://wanahbook.herokuapp.com
+
+Thành viên nhóm phát triển: 
+1. Nguyễn Tuấn Vũ 
+2. Nguyễn Thị Hồng Hạnh
+3. Vũ Việt Vương 
+4. Lý Minh Nghĩa 
+5. Nguyễn Thị Qúy Anh 
+6. Lê Hoài An 
 
 ## I. Tổng quan
 
