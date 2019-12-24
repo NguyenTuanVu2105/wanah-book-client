@@ -64,7 +64,8 @@ const BookDetail = (props) => {
                 <h3 style={{ fontWeight: 500, color: '#b643cd' }}>{book.name}</h3>
                 <div className="book-detail-author">
                   <p className='text-bold'>Tác giả</p>
-                  <a href="/">{book.authors.map(x => x.name).join(', ')}</a>
+                  {/* <a href="/">{book.authors.map(x => x.name).join(', ')}</a> */}
+                    {book.authors.map(x => <a href={`/author/${x.id}`}>{x.name}</a>)}
                 </div>
                 <div className="book-detail-author">
                   <p className='text-bold'>Thể loại</p>
