@@ -56,7 +56,7 @@ const Request = (props) => {
                 if (result.data.book_user.status === 'Đã Mượn') {
                     setCurrent(2)
                 }
-                else {
+                else if (request.is_exprired) {
                     setCurrent(3)
                 }
             }
@@ -109,7 +109,7 @@ const Request = (props) => {
                             </div>
                             <div className="col-8 book-case-content">
                                 <a className="book-case-name" href={`/book/${request.book_user.book.id}`}>{request.book_user.book.name}</a>
-                                <div className="flex book-case-author">Tác giả:&nbsp;&nbsp;<a className="inline" href="/">{request.book_user.book.authors.map(x => x.name).join(' ')}</a></div>
+                                <div className="flex book-case-author">Tác giả:&nbsp;&nbsp;<a className="inline" href={`/author/${request.book_user.book.id}`}>{request.book_user.book.authors.map(x => x.name).join(' ')}</a></div>
                                 <StarRatings rating={request.book_user.book.star} starRatedColor="#ffdc34" numberOfStars={5} starDimension="14px" starSpacing="3px" />
                             </div>
                         </div>

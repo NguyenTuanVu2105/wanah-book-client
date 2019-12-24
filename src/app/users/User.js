@@ -9,7 +9,7 @@ import BookCase from './components/BookCase'
 const { TabPane } = Tabs
 
 
-const User = () => {
+const User = (props) => {
     let {id, action} = useParams();
     const [user, setUser] = useState(null)
     const fetchData = async () => {
@@ -25,7 +25,7 @@ const User = () => {
 
     const buttons = (
         <div className="user-btn-group">
-            <Button type="primary" size="large" style={{width: "200px"}}>Nhắn tin</Button>
+            <a href={`/message/${user? user.id: null}`}><Button type="primary" size="large" style={{width: "200px"}}>Nhắn tin</Button></a>
         </div>
     )
     
